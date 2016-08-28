@@ -1,5 +1,5 @@
 ﻿
-INSERT INTO utilisateur (prenomUtilisateur,nomUtilisateur,pseudoUtilisateur,mpdUtilisateur,mailUtilisateur,dateNaissance)
+INSERT INTO utilisateur (prenomUtilisateur,nomUtilisateur,pseudoUtilisateur,mdpUtilisateur,mailUtilisateur,dateNaissance)
 VALUES ("Levy","LOESER","Alezan","c54Qsu3E","levy.loeser@outlook.fr","1978-12-02"),
 ("Hugo","KIWI","Quadrane","b99s3yEM","hugo.kiwi@outlook.fr","1985-04-01"),
 ("Matthew","ALLON","Orion","yV6k5a7Z","matthew.allon@outlook.fr","1968-06-10"),
