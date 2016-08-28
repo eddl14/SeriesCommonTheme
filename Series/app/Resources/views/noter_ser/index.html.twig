@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Noter_ser list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Note</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for noter_ser in noter_sers %}
+            <tr>
+                <td><a href="{{ path('noter_ser_show', { 'id': noter_ser.id }) }}">{{ noter_ser.id }}</a></td>
+                <td>{{ noter_ser.note }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('noter_ser_show', { 'id': noter_ser.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('noter_ser_edit', { 'id': noter_ser.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('noter_ser_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
