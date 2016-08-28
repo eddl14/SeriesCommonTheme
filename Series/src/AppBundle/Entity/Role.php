@@ -1,10 +1,12 @@
 <?php
 
 namespace AppBundle\Entity;
+
+use AppBundle\Repository\RoleRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\ManyToOne;
-use Symfony\Component\Security\Core\Role\Role;
+
 
 
 /**

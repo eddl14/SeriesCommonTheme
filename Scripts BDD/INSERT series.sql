@@ -1,5 +1,5 @@
 ﻿
-INSERT INTO utilisateurs (prenomUtilisateur,nomUtilisateur,pseudoUtilisateur,mpdUtilisateur,mailUtilisateur,dateNaissance)
+INSERT INTO utilisateur (prenomUtilisateur,nomUtilisateur,pseudoUtilisateur,mpdUtilisateur,mailUtilisateur,dateNaissance)
 VALUES ("Levy","LOESER","Alezan","c54Qsu3E","levy.loeser@outlook.fr","1978-12-02"),
 ("Hugo","KIWI","Quadrane","b99s3yEM","hugo.kiwi@outlook.fr","1985-04-01"),
 ("Matthew","ALLON","Orion","yV6k5a7Z","matthew.allon@outlook.fr","1968-06-10"),
@@ -11,7 +11,7 @@ VALUES ("Levy","LOESER","Alezan","c54Qsu3E","levy.loeser@outlook.fr","1978-12-02
 ("David","RYDTH","Uther","NK8gmk65","david.rydth@outlook.fr","1991-03-19"),
 ("Pierre","SCHAPIRA","Wanek","3wD4W9px","pierre.schapira@outlook.fr","1999-04-07");
 
-INSERT INTO series (nomOriginalSerie,nomSerie,synopsisSerie,resumeSerie,anneeProdSerie) 
+INSERT INTO serie (nomOriginalSerie,nomSerie,synopsisSerie,resumeSerie,anneeProdSerie) 
 VALUES ("Game of Thrones", "Le Trône de fer", "Dans un pays où l'été peut durer plusieurs années et l'hiver toute une vie, 
 des forces sinistres et surnaturelles se pressent aux portes du Royaume des Sept Couronnes. Pendant ce temps,
  complots et rivalités se jouent sur le continent pour s'emparer du Trône de Fer, le symbole du pouvoir absolu. ",
@@ -44,7 +44,7 @@ Une partie de la population refuse alors l'intégration de ces robots tandis que
 d'intérêts généraux. Un jour, ils essuient un puissant et étrange orage et, au sortir, se retrouvent tous affublés de supers pouvoirs... ",
 "en attente de résumé.","2009");
 
-INSERT INTO saisons (nomSaison,numeroSaison,resumeSaison,anneeProduction)
+INSERT INTO saison (nomSaison,numeroSaison,resumeSaison,anneeProduction)
 VALUES("saison", 1, "
     Sur le continent de Westeros, le roi Robert Baratheon règne sur le Royaume des Sept Couronnes depuis qu'il a mené à la victoire la rébellion contre le roi fou, Aerys II Targaryen, dix-sept ans plus tôt. Son guide et principal conseiller, 
 Jon Arryn, venant de décéder, il part dans le nord du royaume demander à son vieil ami Eddard Stark, seigneur suzerain du Nord et de la maison Stark, de remplacer leur regretté mentor au poste de « Main du roi ». Eddard, peu désireux de quitter ses terres,
@@ -104,7 +104,7 @@ un virus très dangereux se répand chez les hubots. Malgré tout cela, certains
 ("saison",1,"Cinq jeunes délinquants effectuant leurs peines de travaux d'intérêt général dans un centre communautaire, sont frappés par un éclair à la suite d'une tempête étrange. Ils découvrent ensuite que la foudre leur a donné des facultés surnaturelles.","2009"),
 ("saison",2,"Les quatre ados ont retrouvé Nathan, et connaissent désormais son pouvoir. Cependant, ils sont sauvés les uns après les autres par un mystérieux individu d'une agilité remarquable, toujours là au bon moment, et dont l'identité reste un mystère…","2010");
 
-INSERT INTO episodes(numeroEpisode,nomEpisode,nomOriginalEpisode,resumeEpisode)
+INSERT INTO episode(numeroEpisode,nomEpisode,nomOriginalEpisode,resumeEpisode)
 VALUES (1,"L'hiver vient","Winter is coming","Au delà d'un gigantesque mur de protection de glace dans le nord de Westeros. Robert Baratheon, le roi, arrive avec son cortège au sud du mur de Winterfell pour demander de l'aide à son vieil ami Eddard Stark. Dans le même temps, sur un autre continent, les derniers survivants de l'ancien régime Targaryen sont à la recherche d'une nouvelle alliance pour reprendre leur royaume de «l'usurpateur» roi Robert..."),
 (2,"La route royale","The Kingsroad","Le roi Robert Baratheon et son entourage prennent la direction du Sud avec Eddard Stark et ses filles Sansa et Arya. Sur la route, Arya a des ennuis avec le prince Joffrey, ce qui laisse à Eddard une décision difficile à prendre. Pendant ce temps, Jon Snow et Tyrion Lannister se dirigent vers le Mur, dans le Nord, le premier pour rejoindre la Garde de nuit et le second par curiosité. A Essos, Daenerys apprend ce que cela signifie d'être mariée à un seigneur de guerre Dothraki. Sur les terres de Winterfell, Bran Stark lutte pour ne pas mourir après sa chute... "),
 (1,"Chute libre","Pilot","Professeur de chimie dans un lycée, Walter White travaille parallèlement dans une station de lavage de voitures afin de boucler les fins de mois de sa famille, composée de sa femme Skyler, qui est enceinte, et de son fils Walter Jr, un adolescent handicapé. Alors qu'il découvre qu'il est atteint d'un cancer du poumon en stade terminal, Walter décide de reprendre sa vie en main. Utilisant ses connaissances en chimie, il s'attelle à la fabrication de méthamphétamines, avec l'aide de Jesse Pinkman, un ancien élève qui s'est spécialisé dans le trafic de drogues..."),
@@ -129,7 +129,7 @@ Désormais, Francis suivra ses propres règles pour parvenir à ses fins politiq
 (1,"Une journée particulière","Episode 1","Nathan, Kelly, Curtis, Alisha et Simon, cinq adolescents condamnés à des travaux d'intérêt généraux pour divers petits délits, sont occupés à repeindre des bancs lorsqu'un violent orage éclate au-dessus de leur tête. Ils fuient Tony, leur surveillant qu'ils se sont amusés à provoquer depuis le début de la journée et sont frappés par la foudre. Ils survivent au choc. C'est pour découvrir qu'ils sont maintenant dotés chacun d'un pouvoir très particulier."),
 (2,"Il y a quelqu'un qui sait","Episode 2","Alors qu'ils ramassent les déchets, le petit groupe tomber sur un homme complètement nu. Nathan le reconnait : c'est le petit ami de sa mère ! Par ailleurs, quelqu'un sait ce qu'ils ont fait à leur directeur de probation...");
 
-INSERT INTO genres(libelleGenre,ageConseille)
+INSERT INTO genre(libelleGenre,ageConseille)
 VALUES ('Drame/Fantasy médiéval','16 ans et plus'),
 ('Drame/Policier/Thriller','16 ans et plus'),
 ('Drame/Techno-thriller/Thriller psychologique/Satire sociale','16 ans et plus'),
@@ -141,7 +141,7 @@ VALUES ('Drame/Fantasy médiéval','16 ans et plus'),
 ('Drame/Thriller','16 ans et plus'),
 ('Super-héros/Comédie noire/Fantastique/Science-fiction','16 ans et plus');
 
-INSERT INTO acteursprincipaux (prenomActeur,nomActeur)
+INSERT INTO acteur (prenomActeur,nomActeur)
 VALUES ('Peter','Dinklage'),
 ('Kit','Harington'),
 ('Emilia','Clarke'),
@@ -190,7 +190,7 @@ VALUES ('Peter','Dinklage'),
 ('Nathan','Stewart-Jarrett'),
 ('Antonia','Thomas');
 
-INSERT INTO producteurs (prenomProducteur,nomProducteur)
+INSERT INTO producteur (prenomProducteur,nomProducteur)
 VALUES ('Mark','Huffam'),
 ('Frank','Doelger'),
 ('Mark','Johnson'),
@@ -208,7 +208,7 @@ VALUES ('Mark','Huffam'),
 ('Universal','Television'),
 ('Kate','Crowe');
 
-INSERT INTO realisateurs (prenomRealisateur,nomRealisateur)
+INSERT INTO realisateur (prenomRealisateur,nomRealisateur)
 VALUES ('Timothy','Van Patten'),
 ('Brian','Kirk'),
 ('Vince','Gilligan'),
