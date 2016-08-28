@@ -1,13 +1,19 @@
 <?php
 
-use AppBundle\Entity\Producteur;
-use AppBundle\Entity\Serie;
-use AppBundle\Repository\ProducteurRepository;
-use Doctrine\ORM\Mapping\ManyToMany;
-
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Producteur;
+use AppBundle\Entity\Serie;
+use Doctrine\ORM\Mapping\ManyToMany;
+use Doctrine\ORM\Mapping as ORM;
 
+
+/**
+ * Producteur
+ *
+ * @ORM\Table(name="producteur")
+ * @ORM\Entity(repositoryClass="ProducteurRepository")
+ */
 class Producteur
 {
     /**

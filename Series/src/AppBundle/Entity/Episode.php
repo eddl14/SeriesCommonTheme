@@ -1,17 +1,23 @@
 <?php
+namespace AppBundle\Entity;
 
 use AppBundle\Entity\Episode;
 use AppBundle\Entity\Realisateur;
 use AppBundle\Entity\Saison;
 use AppBundle\Entity\Utilisateur;
 use AppBundle\Repository\EpisodeRepository;
+use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\ManyToOne;
-use Doctrine\ORM\Mapping\OneToMany;
-
-namespace AppBundle\Entity;
 
 
+
+/**
+ * Episode
+ *
+ * @ORM\Table(name="episode")
+ * @ORM\Entity(repositoryClass="EpisodeRepository")
+ */
 class Episode
 {
     /**
@@ -36,7 +42,7 @@ class Episode
     private $utilisateurs;
     
     /**
-     * @OneToMany(targetEntity="Realisateur", inversedBy="episodes")
+     * @ManyToMany(targetEntity="Realisateur", inversedBy="episodes")
      * 
      */
     private $realisateurs;

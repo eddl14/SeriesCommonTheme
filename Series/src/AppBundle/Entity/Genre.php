@@ -1,13 +1,20 @@
 <?php
 
-use AppBundle\Entity\Genre;
-use AppBundle\Entity\Serie;
-use AppBundle\Repository\GenreRepository;
-use Doctrine\ORM\Mapping\ManyToMany;
-
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Genre;
+use AppBundle\Entity\Serie;
+use Doctrine\ORM\Mapping\ManyToMany;
+use Doctrine\ORM\Mapping as ORM;
 
+
+
+/**
+ * Genre
+ *
+ * @ORM\Table(name="genre")
+ * @ORM\Entity(repositoryClass="GenreRepository")
+ */
 class Genre
 {
     /**

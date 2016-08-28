@@ -1,15 +1,22 @@
 <?php
 
+namespace AppBundle\Entity;
+
 use AppBundle\Entity\Episode;
 use AppBundle\Entity\Saison;
 use AppBundle\Entity\Serie;
-use AppBundle\Repository\SaisonRepository;
+use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\OneToMany;
 
-namespace AppBundle\Entity;
 
 
+/**
+ * Saison
+ *
+ * @ORM\Table(name="saison")
+ * @ORM\Entity(repositoryClass="SaisonRepository")
+ */
 class Saison
 {
     /**

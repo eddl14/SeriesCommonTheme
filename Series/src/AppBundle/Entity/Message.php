@@ -1,11 +1,18 @@
 <?php
 
-use AppBundle\Entity\Message;
-use AppBundle\Repository\MessageRepository;
-
 namespace AppBundle\Entity;
 
+use AppBundle\Repository\MessageRepository;
+use Doctrine\ORM\Mapping\ManyToOne;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\DateTime;
 
+/**
+ * Message
+ *
+ * @ORM\Table(name="message")
+ * @ORM\Entity(repositoryClass="MessageRepository")
+ */
 class Message
 {
     /**
@@ -16,7 +23,18 @@ class Message
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
+    
+    /**
+     * @ManyToOne(targetEntity="Utilisateur", inversedBy="messages")
+     * 
+     */
+    private $utilisateurs;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="libelle", type="string", length=255)
+     */
+     private $libelle;
     /**
      * @var DateTime
      *

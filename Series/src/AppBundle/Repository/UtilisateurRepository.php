@@ -4,6 +4,8 @@ namespace AppBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
+namespace AppBundle\Repository;
+
 /**
  * UtilisateurRepository
  *

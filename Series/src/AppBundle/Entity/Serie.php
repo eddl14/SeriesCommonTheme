@@ -1,13 +1,19 @@
 <?php
 
 namespace AppBundle\Entity;
-
-use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\ManyToMany;
+use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\OneToMany;
+use Doctrine\ORM\Mapping\OneToOne;
+use Symfony\Component\Validator\Constraints\DateTime;
 
-
+/**
+ * Serie
+ *
+ * @ORM\Table(name="serie")
+ * @ORM\Entity(repositoryClass="SerieRepository")
+ */
 class Serie
 {
     /**
@@ -20,6 +26,21 @@ class Serie
     private $id;
     
     /**
+     * @ManyToOne(targetEntity="Utilisateur", inversedBy="series")
+     * 
+     */
+    private $utilisateurs;
+    /**
+     * @OneToOne(targetEntity="CritiqueUtilisateur", inversedBy="series")
+     * 
+     */
+    private $critiques;
+    /**
+     * @OneToMany(targetEntity="Role", mappedBy="seriesRoles")
+     * 
+     */
+    private $acteursRoles;
+    /**
      * @OneToMany(targetEntity="Saison", mappedBy="series")
      * 
      */
@@ -30,10 +51,10 @@ class Serie
      */
     private $acteurs;
     /**
-     * @ManyToMany(targetEntity="Utilisateur", inversedBy="series")
+     * @OneToMany(targetEntity="Noter_ser", mappedBy="seriesNotes")
      * 
      */
-    private $utilisateurs;
+    private $notes_ser;
     /**
      * @ManyToMany(targetEntity="Genre", inversedBy="series")
      * 

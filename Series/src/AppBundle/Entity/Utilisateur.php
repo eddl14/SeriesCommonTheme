@@ -6,8 +6,15 @@ use AppBundle\Repository\UtilisateurRepository;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\ManyToMany;
+use Doctrine\ORM\Mapping\OneToMany;
 
 
+/**
+ * Utilisateur
+ *
+ * @ORM\Table(name="utilisateur")
+ * @ORM\Entity(repositoryClass="UtilisateurRepository")
+ */
 class Utilisateur
 {
     /**
@@ -18,23 +25,39 @@ class Utilisateur
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    
     /**
-     * @ManyToMany(targetEntity="Serie", mappedBy="utilisateurs")
+     * @OneToMany(targetEntity="Message", mappedBy="utilisateurs")
+     * 
+     */
+    private $messages;
+    /**
+     * @OneToMany(targetEntity="Serie", mappedBy="utilisateurs")
      * 
      */
     private $series;
-    
-    /**
-     * @ManyToMany(targetEntity="CritiqueUtilisateur", inversedBy="utilisateurs")
-     * 
-     */
-    private $critiques;
     
     /**
      * @ManyToMany(targetEntity="Episode", inversedBy="utilisateurs")
      * 
      */
     private $episodes;
+    /**
+     * @OneToMany(targetEntity="CritiqueUtilisateur", mappedBy="utilisateurs")
+     * 
+     */
+    private $critiques;
+    /**
+     * @OneToMany(targetEntity="Noter_crit", mappedBy="critiquesUtilisateurs")
+     * 
+     */
+    private $notesCritiques;
+    
+    /**
+     * @OneToMany(targetEntity="Noter_ser", mappedBy="utilisateurs")
+     * 
+     */
+    private $notes_ser;
     /**
      * @var string
      *

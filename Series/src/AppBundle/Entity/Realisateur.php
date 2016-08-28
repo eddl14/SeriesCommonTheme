@@ -1,13 +1,20 @@
 <?php
 
-use AppBundle\Entity\Episode;
-use AppBundle\Entity\Realisateur;
-use AppBundle\Repository\RealisateurRepository;
-use Doctrine\ORM\Mapping\ManyToOne;
-
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Episode;
+use AppBundle\Entity\Realisateur;
+use Doctrine\ORM\Mapping\ManyToMany;
+use Doctrine\ORM\Mapping as ORM;
 
+
+
+/**
+ * Realisateur
+ *
+ * @ORM\Table(name="realisateur")
+ * @ORM\Entity(repositoryClass="RealisateurRepository")
+ */
 class Realisateur
 {
     /**
@@ -18,19 +25,18 @@ class Realisateur
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
+    
+     /**
+     * @ManyToMany(targetEntity="Episode", inversedBy="realisateurs")
+     * 
+     */
+    private $episodes;
     /**
      * @var string
      *
      * @ORM\Column(name="nomRealisateur", type="string", length=255)
      */
     private $nomRealisateur;
-    
-    /**
-     * @ManyToOne(targetEntity="Episode", inversedBy="realisateurs")
-     * 
-     */
-    private $episodes;
     /**
      * @var string
      *
