@@ -100,44 +100,4 @@ class Producteur
     {
         return $this->prenomProducteur;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->series = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add series
-     *
-     * @param \AppBundle\Entity\Serie $series
-     * @return Producteur
-     */
-    public function addSeries(\AppBundle\Entity\Serie $series)
-    {
-        $this->series[] = $series;
-
-        return $this;
-    }
-
-    /**
-     * Remove series
-     *
-     * @param \AppBundle\Entity\Serie $series
-     */
-    public function removeSeries(\AppBundle\Entity\Serie $series)
-    {
-        $this->series->removeElement($series);
-    }
-
-    /**
-     * Get series
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getSeries()
-    {
-        return $this->series;
-    }
 }

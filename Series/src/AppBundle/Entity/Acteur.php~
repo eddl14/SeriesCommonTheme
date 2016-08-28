@@ -1,10 +1,10 @@
 <?php
 
 namespace AppBundle\Entity;
-
-use AppBundle\Repository\ActeurRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping\ManyToMany;
+use Symfony\Component\Validator\Constraints\Collection;
 
 /**
  * Acteur
@@ -103,5 +103,79 @@ class Acteur
     public function getPrenomActeur()
     {
         return $this->prenomActeur;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->roles = new ArrayCollection();
+        $this->series = new ArrayCollection();
+    }
+
+    /**
+     * Add roles
+     *
+     * @param Role $roles
+     * @return Acteur
+     */
+    public function addRole(Role $roles)
+    {
+        $this->roles[] = $roles;
+
+        return $this;
+    }
+
+    /**
+     * Remove roles
+     *
+     * @param Role $roles
+     */
+    public function removeRole(Role $roles)
+    {
+        $this->roles->removeElement($roles);
+    }
+
+    /**
+     * Get roles
+     *
+     * @return Collection 
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
+     * Add series
+     *
+     * @param Serie $series
+     * @return Acteur
+     */
+    public function addSeries(Serie $series)
+    {
+        $this->series[] = $series;
+
+        return $this;
+    }
+
+    /**
+     * Remove series
+     *
+     * @param Serie $series
+     */
+    public function removeSeries(Serie $series)
+    {
+        $this->series->removeElement($series);
+    }
+
+    /**
+     * Get series
+     *
+     * @return Collection 
+     */
+    public function getSeries()
+    {
+        return $this->series;
     }
 }

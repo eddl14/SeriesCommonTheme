@@ -80,4 +80,90 @@ class CritiqueUtilisateur
     {
         return $this->libelleCritique;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->critiquesNotes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set series
+     *
+     * @param \AppBundle\Entity\Serie $series
+     * @return CritiqueUtilisateur
+     */
+    public function setSeries(\AppBundle\Entity\Serie $series = null)
+    {
+        $this->series = $series;
+
+        return $this;
+    }
+
+    /**
+     * Get series
+     *
+     * @return \AppBundle\Entity\Serie 
+     */
+    public function getSeries()
+    {
+        return $this->series;
+    }
+
+    /**
+     * Add critiquesNotes
+     *
+     * @param \AppBundle\Entity\Noter_crit $critiquesNotes
+     * @return CritiqueUtilisateur
+     */
+    public function addCritiquesNote(\AppBundle\Entity\Noter_crit $critiquesNotes)
+    {
+        $this->critiquesNotes[] = $critiquesNotes;
+
+        return $this;
+    }
+
+    /**
+     * Remove critiquesNotes
+     *
+     * @param \AppBundle\Entity\Noter_crit $critiquesNotes
+     */
+    public function removeCritiquesNote(\AppBundle\Entity\Noter_crit $critiquesNotes)
+    {
+        $this->critiquesNotes->removeElement($critiquesNotes);
+    }
+
+    /**
+     * Get critiquesNotes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCritiquesNotes()
+    {
+        return $this->critiquesNotes;
+    }
+
+    /**
+     * Set utilisateurs
+     *
+     * @param \AppBundle\Entity\Utilisateur $utilisateurs
+     * @return CritiqueUtilisateur
+     */
+    public function setUtilisateurs(\AppBundle\Entity\Utilisateur $utilisateurs = null)
+    {
+        $this->utilisateurs = $utilisateurs;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateurs
+     *
+     * @return \AppBundle\Entity\Utilisateur 
+     */
+    public function getUtilisateurs()
+    {
+        return $this->utilisateurs;
+    }
 }

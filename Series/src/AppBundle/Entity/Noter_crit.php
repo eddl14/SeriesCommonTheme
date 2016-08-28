@@ -78,4 +78,73 @@ class Noter_crit
     {
         return $this->note;
     }
+
+    /**
+     * Set critiquesUtilisateurs
+     *
+     * @param \AppBundle\Entity\Utilisateur $critiquesUtilisateurs
+     * @return Noter_crit
+     */
+    public function setCritiquesUtilisateurs(\AppBundle\Entity\Utilisateur $critiquesUtilisateurs = null)
+    {
+        $this->critiquesUtilisateurs = $critiquesUtilisateurs;
+
+        return $this;
+    }
+
+    /**
+     * Get critiquesUtilisateurs
+     *
+     * @return \AppBundle\Entity\Utilisateur 
+     */
+    public function getCritiquesUtilisateurs()
+    {
+        return $this->critiquesUtilisateurs;
+    }
+
+    /**
+     * Set notesCritiques
+     *
+     * @param \AppBundle\Entity\CritiqueUtilisateur $notesCritiques
+     * @return Noter_crit
+     */
+    public function setNotesCritiques(\AppBundle\Entity\CritiqueUtilisateur $notesCritiques = null)
+    {
+        $this->notesCritiques = $notesCritiques;
+
+        return $this;
+    }
+
+    /**
+     * Get notesCritiques
+     *
+     * @return \AppBundle\Entity\CritiqueUtilisateur 
+     */
+    public function getNotesCritiques()
+    {
+        return $this->notesCritiques;
+    }
+
+    /**
+     * Set utilisateurs
+     *
+     * @param \AppBundle\Entity\Utilisateur $utilisateurs
+     * @return Noter_crit
+     */
+    public function setUtilisateurs(\AppBundle\Entity\Utilisateur $utilisateurs = null)
+    {
+        $this->utilisateurs = $utilisateurs;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateurs
+     *
+     * @return \AppBundle\Entity\Utilisateur 
+     */
+    public function getUtilisateurs()
+    {
+        return $this->utilisateurs;
+    }
 }
