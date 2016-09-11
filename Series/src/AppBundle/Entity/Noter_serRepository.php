@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class Noter_serRepository extends EntityRepository
 {
+    public function actorDoesNotExists($noter_ser){
+        $query = $this->createQueryBuilder('ns')
+                    ->where('ns.note = ?1')
+                    ->setParameter(1, $acteur->getNote())
+                    ->getQuery();
+        $res = $query->getOneOrNullResult();
+        
+        return !isset($res);
+    }
 }

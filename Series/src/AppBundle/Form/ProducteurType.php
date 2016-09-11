@@ -17,7 +17,6 @@ class ProducteurType extends AbstractType
         $builder
             ->add('nomProducteur')
             ->add('prenomProducteur')
-            ->add('series')
         ;
     }
     

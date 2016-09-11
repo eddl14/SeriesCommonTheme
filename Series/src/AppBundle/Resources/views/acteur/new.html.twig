@@ -1,0 +1,24 @@
+{% extends '@App/default/index.html.twig' %}
+
+{% block main %}
+    <h1>Acteur creation</h1>
+    {% if app.session.flashBag.has('info_acteur') %}
+        <div class="css3-blink">
+            {%for session in app.session.flashbag.get('info_acteur')%}
+
+            {{session}}
+
+            {%endfor%}
+        </div>
+    {% endif %}
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('acteur_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -48,7 +48,6 @@ class Acteur
      */
     private $prenomActeur;
 
-
     /**
      * Get id
      *

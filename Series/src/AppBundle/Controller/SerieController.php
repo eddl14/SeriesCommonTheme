@@ -28,7 +28,7 @@ class SerieController extends Controller
 
         $series = $em->getRepository('AppBundle:Serie')->findAll();
 
-        return $this->render('serie/index.html.twig', array(
+        return $this->render('@App/serie/index.html.twig', array(
             'series' => $series,
         ));
     }
@@ -46,14 +46,23 @@ class SerieController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($serie);
-            $em->flush();
+            
+            if($this->getDoctrine->getRepository('AppBundle:Serie')->serieDoesNotExists($serie)){
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($serie);
+                $em->flush();
+            }else{
+          
+                  $session=$request->getSession();
+                  $session->getFlashBag()->add('info_serie','Cette série a déjà été ajouté !');
+                  
+                  return $this->render('@App/serie/new.html.twig',array('form' => $form->createView(),));
+            }
 
             return $this->redirectToRoute('serie_show', array('id' => $serie->getId()));
         }
 
-        return $this->render('serie/new.html.twig', array(
+        return $this->render('@App/serie/new.html.twig', array(
             'serie' => $serie,
             'form' => $form->createView(),
         ));
@@ -69,7 +78,7 @@ class SerieController extends Controller
     {
         $deleteForm = $this->createDeleteForm($serie);
 
-        return $this->render('serie/show.html.twig', array(
+        return $this->render('@App/serie/show.html.twig', array(
             'serie' => $serie,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -83,6 +92,7 @@ class SerieController extends Controller
      */
     public function editAction(Request $request, Serie $serie)
     {
+        
         $deleteForm = $this->createDeleteForm($serie);
         $editForm = $this->createForm('AppBundle\Form\SerieType', $serie);
         $editForm->handleRequest($request);
@@ -92,10 +102,10 @@ class SerieController extends Controller
             $em->persist($serie);
             $em->flush();
 
-            return $this->redirectToRoute('serie_edit', array('id' => $serie->getId()));
+            return $this->redirectToRoute('serie_index', array('id' => $serie->getId()));
         }
 
-        return $this->render('serie/edit.html.twig', array(
+        return $this->render('@App/serie/edit.html.twig', array(
             'serie' => $serie,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

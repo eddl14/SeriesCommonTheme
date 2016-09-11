@@ -28,7 +28,7 @@ class GenreController extends Controller
 
         $genres = $em->getRepository('AppBundle:Genre')->findAll();
 
-        return $this->render('genre/index.html.twig', array(
+        return $this->render('@App/genre/index.html.twig', array(
             'genres' => $genres,
         ));
     }
@@ -46,14 +46,23 @@ class GenreController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($genre);
-            $em->flush();
+            
+            if($this->getDoctrine->getRepository('AppBundle:Genre')->genreDoesNotExists($genre)){
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($genre);
+                $em->flush();
+            }else{
+          
+                  $session=$request->getSession();
+                  $session->getFlashBag()->add('info_genre','Ce genre a déjà été ajouté !');
+                  
+                  return $this->render('@App/genre/new.html.twig',array('form' => $form->createView(),));
+            }
 
             return $this->redirectToRoute('genre_show', array('id' => $genre->getId()));
         }
 
-        return $this->render('genre/new.html.twig', array(
+        return $this->render('@App/genre/new.html.twig', array(
             'genre' => $genre,
             'form' => $form->createView(),
         ));
@@ -69,7 +78,7 @@ class GenreController extends Controller
     {
         $deleteForm = $this->createDeleteForm($genre);
 
-        return $this->render('genre/show.html.twig', array(
+        return $this->render('@App/genre/show.html.twig', array(
             'genre' => $genre,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -92,10 +101,10 @@ class GenreController extends Controller
             $em->persist($genre);
             $em->flush();
 
-            return $this->redirectToRoute('genre_edit', array('id' => $genre->getId()));
+            return $this->redirectToRoute('genre_index', array('id' => $genre->getId()));
         }
 
-        return $this->render('genre/edit.html.twig', array(
+        return $this->render('@App/genre/edit.html.twig', array(
             'genre' => $genre,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

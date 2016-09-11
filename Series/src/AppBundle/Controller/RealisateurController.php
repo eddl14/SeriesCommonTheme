@@ -28,7 +28,7 @@ class RealisateurController extends Controller
 
         $realisateurs = $em->getRepository('AppBundle:Realisateur')->findAll();
 
-        return $this->render('realisateur/index.html.twig', array(
+        return $this->render('@App/realisateur/index.html.twig', array(
             'realisateurs' => $realisateurs,
         ));
     }
@@ -46,14 +46,21 @@ class RealisateurController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($realisateur);
-            $em->flush();
-
+            if($this->getDoctrine->getRepository('AppBundle:Realisateur')->realisateurDoesNotExists($producteur)){
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($realisateur);
+                $em->flush();
+            }else{
+          
+                  $session=$request->getSession();
+                  $session->getFlashBag()->add('info_realisateur','Ce realisateur a déjà été ajouté !');
+                  
+                  return $this->render('@App/realisateur/new.html.twig',array('form' => $form->createView(),));
+            }
             return $this->redirectToRoute('realisateur_show', array('id' => $realisateur->getId()));
         }
 
-        return $this->render('realisateur/new.html.twig', array(
+        return $this->render('@App/realisateur/new.html.twig', array(
             'realisateur' => $realisateur,
             'form' => $form->createView(),
         ));
@@ -69,7 +76,7 @@ class RealisateurController extends Controller
     {
         $deleteForm = $this->createDeleteForm($realisateur);
 
-        return $this->render('realisateur/show.html.twig', array(
+        return $this->render('@App/realisateur/show.html.twig', array(
             'realisateur' => $realisateur,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -92,10 +99,10 @@ class RealisateurController extends Controller
             $em->persist($realisateur);
             $em->flush();
 
-            return $this->redirectToRoute('realisateur_edit', array('id' => $realisateur->getId()));
+            return $this->redirectToRoute('realisateur_index', array('id' => $realisateur->getId()));
         }
-
-        return $this->render('realisateur/edit.html.twig', array(
+        
+        return $this->render('@App/realisateur/edit.html.twig', array(
             'realisateur' => $realisateur,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

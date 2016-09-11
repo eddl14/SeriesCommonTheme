@@ -52,7 +52,11 @@ class Utilisateur
      * 
      */
     private $notesCritiques;
-    
+    /**
+     * @OneToMany(targetEntity="Noter_crit", mappedBy="utilisateurs")
+     * 
+     */
+    private $note_critique;
     /**
      * @OneToMany(targetEntity="Noter_ser", mappedBy="utilisateurs")
      * 
@@ -487,5 +491,38 @@ class Utilisateur
     public function getNotesSer()
     {
         return $this->notes_ser;
+    }
+
+    /**
+     * Add note_critique
+     *
+     * @param \AppBundle\Entity\Noter_crit $noteCritique
+     * @return Utilisateur
+     */
+    public function addNoteCritique(\AppBundle\Entity\Noter_crit $noteCritique)
+    {
+        $this->note_critique[] = $noteCritique;
+
+        return $this;
+    }
+
+    /**
+     * Remove note_critique
+     *
+     * @param \AppBundle\Entity\Noter_crit $noteCritique
+     */
+    public function removeNoteCritique(\AppBundle\Entity\Noter_crit $noteCritique)
+    {
+        $this->note_critique->removeElement($noteCritique);
+    }
+
+    /**
+     * Get note_critique
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getNoteCritique()
+    {
+        return $this->note_critique;
     }
 }

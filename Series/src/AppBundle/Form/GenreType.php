@@ -17,7 +17,6 @@ class GenreType extends AbstractType
         $builder
             ->add('libelleGenre')
             ->add('ageConseille')
-            ->add('series')
         ;
     }
     

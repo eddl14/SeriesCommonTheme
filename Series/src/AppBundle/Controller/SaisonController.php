@@ -28,7 +28,7 @@ class SaisonController extends Controller
 
         $saisons = $em->getRepository('AppBundle:Saison')->findAll();
 
-        return $this->render('saison/index.html.twig', array(
+        return $this->render('@App/saison/index.html.twig', array(
             'saisons' => $saisons,
         ));
     }
@@ -46,14 +46,23 @@ class SaisonController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($saison);
-            $em->flush();
+            
+            if($this->getDoctrine->getRepository('AppBundle:Saison')->saisonDoesNotExists($producteur)){
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($saison);
+                $em->flush();
+            }else{
+          
+                  $session=$request->getSession();
+                  $session->getFlashBag()->add('info_saison','Cette saison a déjà été ajouté !');
+                  
+                  return $this->render('@App/saison/new.html.twig',array('form' => $form->createView(),));
+            }
 
             return $this->redirectToRoute('saison_show', array('id' => $saison->getId()));
         }
 
-        return $this->render('saison/new.html.twig', array(
+        return $this->render('@App/saison/new.html.twig', array(
             'saison' => $saison,
             'form' => $form->createView(),
         ));
@@ -69,7 +78,7 @@ class SaisonController extends Controller
     {
         $deleteForm = $this->createDeleteForm($saison);
 
-        return $this->render('saison/show.html.twig', array(
+        return $this->render('@App/saison/show.html.twig', array(
             'saison' => $saison,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -92,10 +101,10 @@ class SaisonController extends Controller
             $em->persist($saison);
             $em->flush();
 
-            return $this->redirectToRoute('saison_edit', array('id' => $saison->getId()));
+            return $this->redirectToRoute('saison_index', array('id' => $saison->getId()));
         }
 
-        return $this->render('saison/edit.html.twig', array(
+        return $this->render('@App/saison/edit.html.twig', array(
             'saison' => $saison,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

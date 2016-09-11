@@ -1,0 +1,15 @@
+{% extends '@App/base.html.twig' %}
+
+{% block body %}
+    <a href="{{path("realisateur_index")}}" class="btn-btn-primay">Liste des réalisateurs</a>
+    <a href="{{path("acteur_index")}}" class="btn-btn-primay">Liste des acteurs</a>
+    <a href="{{path("producteur_index")}}" class="btn-btn-primay">Liste des producteurs</a>
+    <a href="{{path("genre_index")}}" class="btn-btn-primay">Liste des genres</a>
+    <a href="{{path("episode_index")}}" class="btn-btn-primay">Liste des épisodes</a>
+    <a href="{{path("critiqueutilisateur_index")}}" class="btn-btn-primay">Liste des critiques</a>
+    <a href="{{path("role_index")}}" class="btn-btn-primay">Liste des rôles</a>
+    <a href="{{path("serie_index")}}" class="btn-btn-primay">Liste des séries</a>
+    <a href="{{path("saison_index")}}" class="btn-btn-primay">Liste des saisons</a>
+    {%block main%}
+    {%endblock%}
+{% endblock %}

@@ -2,12 +2,15 @@
 
 namespace AppBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+
 use AppBundle\Entity\Acteur;
 use AppBundle\Form\ActeurType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Form;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * Acteur controller.
@@ -28,7 +31,7 @@ class ActeurController extends Controller
 
         $acteurs = $em->getRepository('AppBundle:Acteur')->findAll();
 
-        return $this->render('acteur/index.html.twig', array(
+        return $this->render('@App/acteur/index.html.twig', array(
             'acteurs' => $acteurs,
         ));
     }
@@ -42,23 +45,37 @@ class ActeurController extends Controller
     public function newAction(Request $request)
     {
         $acteur = new Acteur();
-        $form = $this->createForm('AppBundle\Form\ActeurType', $acteur);
+        $form = $this->createForm(ActeurType::class, $acteur);
         $form->handleRequest($request);
-
+        
+                    
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($acteur);
-            $em->flush();
+      
+            if($this->getDoctrine()->getRepository('AppBundle:Acteur')->actorDoesNotExists($acteur)){
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($acteur);
+                $em->flush();
+            }
+            else{
+          
+                  $session=$request->getSession();
+                  $session->getFlashBag()->add('info_acteur','Cet acteur a déjà été ajouté !');
+                  
+                  return $this->render('@App/acteur/new.html.twig',array('form' => $form->createView(),));
+            }
+            
+            
 
-            return $this->redirectToRoute('acteur_show', array('id' => $acteur->getId()));
+            return $this->redirectToRoute('acteur_index', array('id' => $acteur->getId()));
         }
 
-        return $this->render('acteur/new.html.twig', array(
+        return $this->render('@App/acteur/new.html.twig', array(
             'acteur' => $acteur,
             'form' => $form->createView(),
         ));
     }
-
+    
+    
     /**
      * Finds and displays a Acteur entity.
      *
@@ -69,7 +86,7 @@ class ActeurController extends Controller
     {
         $deleteForm = $this->createDeleteForm($acteur);
 
-        return $this->render('acteur/show.html.twig', array(
+        return $this->render('@App/acteur/show.html.twig', array(
             'acteur' => $acteur,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -84,7 +101,7 @@ class ActeurController extends Controller
     public function editAction(Request $request, Acteur $acteur)
     {
         $deleteForm = $this->createDeleteForm($acteur);
-        $editForm = $this->createForm('AppBundle\Form\ActeurType', $acteur);
+        $editForm = $this->createForm(ActeurType::class, $acteur);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -92,10 +109,10 @@ class ActeurController extends Controller
             $em->persist($acteur);
             $em->flush();
 
-            return $this->redirectToRoute('acteur_edit', array('id' => $acteur->getId()));
+            return $this->redirectToRoute('acteur_index', array('id' => $acteur->getId()));
         }
 
-        return $this->render('acteur/edit.html.twig', array(
+        return $this->render('@App/acteur/edit.html.twig', array(
             'acteur' => $acteur,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -105,7 +122,7 @@ class ActeurController extends Controller
     /**
      * Deletes a Acteur entity.
      *
-     * @Route("/{id}", name="acteur_delete")
+     * @Route("/{id}/delete", name="acteur_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Acteur $acteur)
@@ -127,7 +144,7 @@ class ActeurController extends Controller
      *
      * @param Acteur $acteur The Acteur entity
      *
-     * @return \Symfony\Component\Form\Form The form
+     * @return Form The form
      */
     private function createDeleteForm(Acteur $acteur)
     {

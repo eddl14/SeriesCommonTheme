@@ -28,7 +28,7 @@ class Noter_serController extends Controller
 
         $noter_sers = $em->getRepository('AppBundle:Noter_ser')->findAll();
 
-        return $this->render('noter_ser/index.html.twig', array(
+        return $this->render('@App/noter_ser/index.html.twig', array(
             'noter_sers' => $noter_sers,
         ));
     }
@@ -46,14 +46,22 @@ class Noter_serController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($noter_ser);
-            $em->flush();
-
+            
+             if($this->getDoctrine->getRepository('AppBundle:Noter_ser')->noter_serDoesNotExists($noter_ser)){
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($noter_ser);
+                $em->flush();
+            }else{
+          
+                  $session=$request->getSession();
+                  $session->getFlashBag()->add('info_noter_ser','Vous avez déjà noté cette série !');
+                  
+                  return $this->render('@App/noter_ser/new.html.twig',array('form' => $form->createView(),));
+            }
             return $this->redirectToRoute('noter_ser_show', array('id' => $noter_ser->getId()));
         }
 
-        return $this->render('noter_ser/new.html.twig', array(
+        return $this->render('@App/noter_ser/new.html.twig', array(
             'noter_ser' => $noter_ser,
             'form' => $form->createView(),
         ));
@@ -69,7 +77,7 @@ class Noter_serController extends Controller
     {
         $deleteForm = $this->createDeleteForm($noter_ser);
 
-        return $this->render('noter_ser/show.html.twig', array(
+        return $this->render('@App/noter_ser/show.html.twig', array(
             'noter_ser' => $noter_ser,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -92,10 +100,10 @@ class Noter_serController extends Controller
             $em->persist($noter_ser);
             $em->flush();
 
-            return $this->redirectToRoute('noter_ser_edit', array('id' => $noter_ser->getId()));
+            return $this->redirectToRoute('noter_ser_index', array('id' => $noter_ser->getId()));
         }
 
-        return $this->render('noter_ser/edit.html.twig', array(
+        return $this->render('@App/noter_ser/edit.html.twig', array(
             'noter_ser' => $noter_ser,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

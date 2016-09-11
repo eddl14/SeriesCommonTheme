@@ -28,7 +28,7 @@ class UtilisateurController extends Controller
 
         $utilisateurs = $em->getRepository('AppBundle:Utilisateur')->findAll();
 
-        return $this->render('utilisateur/index.html.twig', array(
+        return $this->render('@App/utilisateur/index.html.twig', array(
             'utilisateurs' => $utilisateurs,
         ));
     }
@@ -46,14 +46,23 @@ class UtilisateurController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($utilisateur);
-            $em->flush();
+            
+            if($this->getDoctrine->getRepository('AppBundle:Utilisateur')->utilisateurDoesNotExists($utilisateur)){
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($utilisateur);
+                $em->flush();
+            }else{
+          
+                  $session=$request->getSession();
+                  $session->getFlashBag()->add('info_utilisateur','Cet utilisateur a déjà été ajouté !');
+                  
+                  return $this->render('@App/utilisateur/new.html.twig',array('form' => $form->createView(),));
+            }
 
             return $this->redirectToRoute('utilisateur_show', array('id' => $utilisateur->getId()));
         }
 
-        return $this->render('utilisateur/new.html.twig', array(
+        return $this->render('@App/utilisateur/new.html.twig', array(
             'utilisateur' => $utilisateur,
             'form' => $form->createView(),
         ));
@@ -69,7 +78,7 @@ class UtilisateurController extends Controller
     {
         $deleteForm = $this->createDeleteForm($utilisateur);
 
-        return $this->render('utilisateur/show.html.twig', array(
+        return $this->render('@App/utilisateur/show.html.twig', array(
             'utilisateur' => $utilisateur,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -92,10 +101,10 @@ class UtilisateurController extends Controller
             $em->persist($utilisateur);
             $em->flush();
 
-            return $this->redirectToRoute('utilisateur_edit', array('id' => $utilisateur->getId()));
+            return $this->redirectToRoute('utilisateur_index', array('id' => $utilisateur->getId()));
         }
 
-        return $this->render('utilisateur/edit.html.twig', array(
+        return $this->render('@App/utilisateur/edit.html.twig', array(
             'utilisateur' => $utilisateur,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

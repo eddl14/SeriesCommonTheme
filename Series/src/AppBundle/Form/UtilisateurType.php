@@ -15,14 +15,13 @@ class UtilisateurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nomUtilisateur')
-            ->add('prenomUtilisateur')
-            ->add('pseudoUtilisateur')
-            ->add('mdpUtilisateur')
-            ->add('mailUtilisateur')
-            ->add('dateNaissance', 'datetime')
-            ->add('photoProfil')
-            ->add('episodes')
+            ->add('nomUtilisateur',TextType::class,['label'=>'Nom'])
+            ->add('prenomUtilisateur',TextType::class,['label'=>'Prénom'])
+            ->add('pseudoUtilisateur',TextType::class,['label'=>'Pseudo'])
+            ->add('mdpUtilisateur',TextType::class,['label'=>'Mdp'])
+            ->add('mailUtilisateur',TextType::class,['label'=>'Mail'])
+            ->add('dateNaissance', DateType::class,['widget'=>'single_text','format'=>'yyyy-MM-dd'])
+            ->add('photoProfil',TextType::class,['label'=>'Photo'])
         ;
     }
     

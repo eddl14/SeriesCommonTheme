@@ -5,6 +5,8 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ActeurType extends AbstractType
 {
@@ -15,10 +17,8 @@ class ActeurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nomActeur')
-            ->add('prenomActeur')
-            ->add('roles')
-            ->add('series')
+            ->add('nomActeur',TextType::class,['label'=>'Nom'])
+            ->add('prenomActeur',TextType::class,['label'=>'Prenom'])
         ;
     }
     

@@ -16,8 +16,6 @@ class CritiqueUtilisateurType extends AbstractType
     {
         $builder
             ->add('libelleCritique')
-            ->add('series')
-            ->add('utilisateurs')
         ;
     }
     

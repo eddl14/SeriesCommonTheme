@@ -20,7 +20,6 @@ class SaisonType extends AbstractType
             ->add('resumeSaison')
             ->add('anneeProduction')
             ->add('posterSaison')
-            ->add('series')
         ;
     }
     

@@ -28,7 +28,7 @@ class CritiqueUtilisateurController extends Controller
 
         $critiqueUtilisateurs = $em->getRepository('AppBundle:CritiqueUtilisateur')->findAll();
 
-        return $this->render('critiqueutilisateur/index.html.twig', array(
+        return $this->render('@App/critiqueutilisateur/index.html.twig', array(
             'critiqueUtilisateurs' => $critiqueUtilisateurs,
         ));
     }
@@ -53,7 +53,7 @@ class CritiqueUtilisateurController extends Controller
             return $this->redirectToRoute('critiqueutilisateur_show', array('id' => $critiqueUtilisateur->getId()));
         }
 
-        return $this->render('critiqueutilisateur/new.html.twig', array(
+        return $this->render('@App/critiqueutilisateur/new.html.twig', array(
             'critiqueUtilisateur' => $critiqueUtilisateur,
             'form' => $form->createView(),
         ));
@@ -69,7 +69,7 @@ class CritiqueUtilisateurController extends Controller
     {
         $deleteForm = $this->createDeleteForm($critiqueUtilisateur);
 
-        return $this->render('critiqueutilisateur/show.html.twig', array(
+        return $this->render('@App/critiqueutilisateur/show.html.twig', array(
             'critiqueUtilisateur' => $critiqueUtilisateur,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -95,7 +95,7 @@ class CritiqueUtilisateurController extends Controller
             return $this->redirectToRoute('critiqueutilisateur_edit', array('id' => $critiqueUtilisateur->getId()));
         }
 
-        return $this->render('critiqueutilisateur/edit.html.twig', array(
+        return $this->render('@App/critiqueutilisateur/edit.html.twig', array(
             'critiqueUtilisateur' => $critiqueUtilisateur,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

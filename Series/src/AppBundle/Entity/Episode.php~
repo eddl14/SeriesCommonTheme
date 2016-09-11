@@ -42,7 +42,7 @@ class Episode
     private $utilisateurs;
     
     /**
-     * @ManyToMany(targetEntity="Realisateur", inversedBy="episodes")
+     * @ManyToMany(targetEntity="Realisateur", mappedBy="episodes")
      * 
      */
     private $realisateurs;
@@ -173,5 +173,102 @@ class Episode
     public function getResumeEpisode()
     {
         return $this->resumeEpisode;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->utilisateurs = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->realisateurs = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add utilisateurs
+     *
+     * @param \AppBundle\Entity\Utilisateur $utilisateurs
+     * @return Episode
+     */
+    public function addUtilisateur(\AppBundle\Entity\Utilisateur $utilisateurs)
+    {
+        $this->utilisateurs[] = $utilisateurs;
+
+        return $this;
+    }
+
+    /**
+     * Remove utilisateurs
+     *
+     * @param \AppBundle\Entity\Utilisateur $utilisateurs
+     */
+    public function removeUtilisateur(\AppBundle\Entity\Utilisateur $utilisateurs)
+    {
+        $this->utilisateurs->removeElement($utilisateurs);
+    }
+
+    /**
+     * Get utilisateurs
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUtilisateurs()
+    {
+        return $this->utilisateurs;
+    }
+
+    /**
+     * Add realisateurs
+     *
+     * @param \AppBundle\Entity\Realisateur $realisateurs
+     * @return Episode
+     */
+    public function addRealisateur(\AppBundle\Entity\Realisateur $realisateurs)
+    {
+        $this->realisateurs[] = $realisateurs;
+
+        return $this;
+    }
+
+    /**
+     * Remove realisateurs
+     *
+     * @param \AppBundle\Entity\Realisateur $realisateurs
+     */
+    public function removeRealisateur(\AppBundle\Entity\Realisateur $realisateurs)
+    {
+        $this->realisateurs->removeElement($realisateurs);
+    }
+
+    /**
+     * Get realisateurs
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRealisateurs()
+    {
+        return $this->realisateurs;
+    }
+
+    /**
+     * Set saisons
+     *
+     * @param \AppBundle\Entity\Saison $saisons
+     * @return Episode
+     */
+    public function setSaisons(\AppBundle\Entity\Saison $saisons = null)
+    {
+        $this->saisons = $saisons;
+
+        return $this;
+    }
+
+    /**
+     * Get saisons
+     *
+     * @return \AppBundle\Entity\Saison 
+     */
+    public function getSaisons()
+    {
+        return $this->saisons;
     }
 }

@@ -77,4 +77,50 @@ class Noter_ser
     {
         return $this->note;
     }
+
+    /**
+     * Set seriesNotes
+     *
+     * @param \AppBundle\Entity\Serie $seriesNotes
+     * @return Noter_ser
+     */
+    public function setSeriesNotes(\AppBundle\Entity\Serie $seriesNotes = null)
+    {
+        $this->seriesNotes = $seriesNotes;
+
+        return $this;
+    }
+
+    /**
+     * Get seriesNotes
+     *
+     * @return \AppBundle\Entity\Serie 
+     */
+    public function getSeriesNotes()
+    {
+        return $this->seriesNotes;
+    }
+
+    /**
+     * Set utilisateurs
+     *
+     * @param \AppBundle\Entity\Utilisateur $utilisateurs
+     * @return Noter_ser
+     */
+    public function setUtilisateurs(\AppBundle\Entity\Utilisateur $utilisateurs = null)
+    {
+        $this->utilisateurs = $utilisateurs;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateurs
+     *
+     * @return \AppBundle\Entity\Utilisateur 
+     */
+    public function getUtilisateurs()
+    {
+        return $this->utilisateurs;
+    }
 }

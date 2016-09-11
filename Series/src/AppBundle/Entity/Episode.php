@@ -42,7 +42,7 @@ class Episode
     private $utilisateurs;
     
     /**
-     * @ManyToMany(targetEntity="Realisateur", inversedBy="episodes")
+     * @ManyToMany(targetEntity="Realisateur", mappedBy="episodes")
      * 
      */
     private $realisateurs;

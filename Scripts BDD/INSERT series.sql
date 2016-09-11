@@ -15,34 +15,34 @@ INSERT INTO serie (nomOriginalSerie,nomSerie,synopsisSerie,resumeSerie,anneeProd
 VALUES ("Game of Thrones", "Le Trône de fer", "Dans un pays où l'été peut durer plusieurs années et l'hiver toute une vie, 
 des forces sinistres et surnaturelles se pressent aux portes du Royaume des Sept Couronnes. Pendant ce temps,
  complots et rivalités se jouent sur le continent pour s'emparer du Trône de Fer, le symbole du pouvoir absolu. ",
-"en attente de résumé.","2011"),
+"en attente de résumé.","2011-01-25"),
 ("Breaking Bad", "Breaking Bad: Le Chimiste", "Atteint d'un cancer incurable, le professeur de chimie Walter White décide 
 de tout mettre en oeuvre pour mettre définitivement à l'abri sa famille. Sa solution ? Fabriquer et vendre du crystal meth. 
-Il fait appel à Jesse, un de ses anciens élèves devenu un petit dealer de seconde zone...","en attente de résumé.","2008"),
+Il fait appel à Jesse, un de ses anciens élèves devenu un petit dealer de seconde zone...","en attente de résumé.","2008-05-01"),
 ("Mr.Robot", "Mr.Robot", "Elliot est un jeune programmeur anti-social qui souffre d'un trouble du comportement
  qui le pousse à croire qu'il ne peut rencontrer des gens qu'en les hackant. Il travaille pour une firme spécialisée dans 
 la cyber-sécurité mais un homme connu sous le nom de Mr Robot l'approche un jour pour faire tomber une compagnie 
-surpuissante qui fait partie de celles qu'il doit justement protéger... ","en attente de résumé.","2015"),
+surpuissante qui fait partie de celles qu'il doit justement protéger... ","en attente de résumé.","2015-02-16"),
 ("House of Cards", "Le Château de cartes", "Frank Underwood, homme politique rusé et vieux briscard de Washington, 
-est prêt à tout pour conquérir le poste \"suprême\"... ","en attente de résumé.","2013"),
+est prêt à tout pour conquérir le poste 'suprême'... ","en attente de résumé.","2013-01-15"),
 ("11.22.63", "11/22/63", "Un professeur essaie d'éviter le meurtre de JFK en remontant le temps, 
-mais sa mission est mise en péril par Lee Harvey Oswald et le passé qui ne veut pas être changé. ","en attente de résumé.","2016"),
+mais sa mission est mise en péril par Lee Harvey Oswald et le passé qui ne veut pas être changé. ","en attente de résumé.","2016-05-12"),
 ("American Horror Story", "Histoire d'horreur"," A chaque saison, son histoire. American Horror Story nous embarque dans des récits
  à la fois poignants et cauchemardesques, mêlant la peur, le gore et le politiquement correct. De quoi vous confronter à vos plus grandes frayeurs ! ",
-"en attente de résumé.","2011"),
+"en attente de résumé.","2011-05-18"),
 ("Luther", "Luther", "Brillant inspecteur à la Criminelle, Luther a parfois du mal à contenir ses propres démons intérieurs... ",
-"en attente de résumé.","2010"),
-("Äkta Människor", "Real Humans", "Äkta Människor (\"les véritables humains\") se situe dans un monde parallèle où les robots humanoïdes (Hubot) 
+"en attente de résumé.","2010-04-19"),
+("Äkta Människor", "Real Humans", "Äkta Människor ('les véritables humains') se situe dans un monde parallèle où les robots humanoïdes (Hubot) 
 sont devenus des machines courantes dans la société. Ces Hubots sont très réalistes et sont configurés de telle sorte à remplir une large demande. 
 S'adaptant à tous les besoins humains, de la simple tâche ménagère à des activités plus dangereuses voire illégales, la société semble en dépendre. 
 Une partie de la population refuse alors l'intégration de ces robots tandis que les machines manifestent des signes d'indépendance et de personnalité propre.",
-"en attente de résumé.","2012"),
-("Bates Motel", "Motel Bates", "Une plongée dans le passé du fameux Norman Bates, futur propriétaire de l'hôtel de \"Psychose\",
+"en attente de résumé.","2012-06-08"),
+("Bates Motel", "Motel Bates", "Une plongée dans le passé du fameux Norman Bates, futur propriétaire de l'hôtel de 'Psychose',
  alors qu'il partage une relation très complexe avec sa mère, Norma. Pourquoi est-il devenu un serial killer ? ",
-"en attente de résumé.","2013"),
+"en attente de résumé.","2013-01-07"),
 ("Misfits", "Misfits", "Cinq jeunes marginaux qui n'ont rien en commun se retrouvent en même temps à devoir remplir des travaux 
 d'intérêts généraux. Un jour, ils essuient un puissant et étrange orage et, au sortir, se retrouvent tous affublés de supers pouvoirs... ",
-"en attente de résumé.","2009");
+"en attente de résumé.","2009-04-09");
 
 INSERT INTO saison (nomSaison,numeroSaison,resumeSaison,anneeProduction)
 VALUES("saison", 1, "

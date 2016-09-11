@@ -12,4 +12,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class ProducteurRepository extends EntityRepository
 {
+    public function producteurDoesNotExists($producteur){
+        $query = $this->createQueryBuilder('p')
+                    ->where('p.nomProducteur = ?1')
+                    ->andWhere('p.prenomProducteur = ?2')
+                    ->setParameter(1, $acteur->getNomProducteur())
+                    ->setParameter(2, $acteur->getPrenomProducteur())
+                    ->getQuery();
+        $res = $query->getOneOrNullResult();
+        
+        return !isset($res);
+    }
 }

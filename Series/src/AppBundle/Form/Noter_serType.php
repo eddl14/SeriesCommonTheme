@@ -16,8 +16,6 @@ class Noter_serType extends AbstractType
     {
         $builder
             ->add('note')
-            ->add('seriesNotes')
-            ->add('utilisateurs')
         ;
     }
     

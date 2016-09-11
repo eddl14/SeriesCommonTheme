@@ -12,4 +12,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class GenreRepository extends EntityRepository
 {
+    public function genreDoesNotExists($genre){
+        $query = $this->createQueryBuilder('g')
+                    ->where('g.ageConseille = ?1')
+                    ->andWhere('g.libelleGenre = ?2')
+                    ->setParameter(1, $genre->getAgeConseille())
+                    ->setParameter(2, $genre->getLibelleGenre())
+                    ->getQuery();
+        $res = $query->getOneOrNullResult();
+        
+        return !isset($res);
+    }
 }

@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class EpisodeRepository extends EntityRepository
 {
+     public function episodeDoesNotExists($episode){
+        $query = $this->createQueryBuilder('e')
+                    ->where('e.numeroEpisode = ?1')
+                    ->setParameter(1, $episode->getNumeroEpisode())
+                    ->getQuery();
+        $res = $query->getOneOrNullResult();
+        
+        return !isset($res);
+    }
 }

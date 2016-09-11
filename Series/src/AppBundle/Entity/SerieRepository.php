@@ -12,4 +12,23 @@ use Doctrine\ORM\EntityRepository;
  */
 class SerieRepository extends EntityRepository
 {
+    public function saisonDoesNotExists($serie){
+        $query = $this->createQueryBuilder('se')
+                    ->where('se.nomSerie = ?1')
+                    ->andWhere('se.nomOriginalSerie = ?2')
+                    ->andwhere('se.synopsisSerie = ?3')
+                    ->andwhere('se.resumeSerie = ?4')
+                    ->andwhere('se.anneeProdSerie =?5')
+                    ->andwhere('se.posterSerie = ?6')
+                    ->setParameter(1, $saison->getNomSerie())
+                    ->setParameter(2, $saison->getNomOriginalSerie())
+                    ->setParameter(3, $saison->getSynopsisSerie())
+                    ->setParameter(4, $saison->getResumeSerie())
+                    ->setParameter(4, $saison->getAnneeProdSerie())
+                    ->setParameter(5, $saison->getPosterSerie())
+                    ->getQuery();
+        $res = $query->getOneOrNullResult();
+        
+        return !isset($res);
+    }
 }

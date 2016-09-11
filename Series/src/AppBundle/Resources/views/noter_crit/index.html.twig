@@ -1,0 +1,39 @@
+{% extends '@App/default/index.html.twig' %}
+
+{% block main %}
+    <h1>Noter_crit list</h1>
+    <ul>
+        <li>
+            <a href="{{ path('noter_crit_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Note</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for noter_crit in noter_crits %}
+            <tr>
+                <td><a href="{{ path('noter_crit_show', { 'id': noter_crit.id }) }}">{{ noter_crit.id }}</a></td>
+                <td>{{ noter_crit.note }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('noter_crit_show', { 'id': noter_crit.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('noter_crit_edit', { 'id': noter_crit.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

@@ -198,4 +198,67 @@ class Saison
     {
         return $this->posterSaison;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->episodes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add episodes
+     *
+     * @param \AppBundle\Entity\Episode $episodes
+     * @return Saison
+     */
+    public function addEpisode(\AppBundle\Entity\Episode $episodes)
+    {
+        $this->episodes[] = $episodes;
+
+        return $this;
+    }
+
+    /**
+     * Remove episodes
+     *
+     * @param \AppBundle\Entity\Episode $episodes
+     */
+    public function removeEpisode(\AppBundle\Entity\Episode $episodes)
+    {
+        $this->episodes->removeElement($episodes);
+    }
+
+    /**
+     * Get episodes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEpisodes()
+    {
+        return $this->episodes;
+    }
+
+    /**
+     * Set series
+     *
+     * @param \AppBundle\Entity\Serie $series
+     * @return Saison
+     */
+    public function setSeries(\AppBundle\Entity\Serie $series = null)
+    {
+        $this->series = $series;
+
+        return $this;
+    }
+
+    /**
+     * Get series
+     *
+     * @return \AppBundle\Entity\Serie 
+     */
+    public function getSeries()
+    {
+        return $this->series;
+    }
 }

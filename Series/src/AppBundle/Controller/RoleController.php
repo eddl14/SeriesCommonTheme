@@ -28,7 +28,7 @@ class RoleController extends Controller
 
         $roles = $em->getRepository('AppBundle:Role')->findAll();
 
-        return $this->render('role/index.html.twig', array(
+        return $this->render('@App/role/index.html.twig', array(
             'roles' => $roles,
         ));
     }
@@ -53,7 +53,7 @@ class RoleController extends Controller
             return $this->redirectToRoute('role_show', array('id' => $role->getId()));
         }
 
-        return $this->render('role/new.html.twig', array(
+        return $this->render('@App/role/new.html.twig', array(
             'role' => $role,
             'form' => $form->createView(),
         ));
@@ -69,7 +69,7 @@ class RoleController extends Controller
     {
         $deleteForm = $this->createDeleteForm($role);
 
-        return $this->render('role/show.html.twig', array(
+        return $this->render('@App/role/show.html.twig', array(
             'role' => $role,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -92,10 +92,10 @@ class RoleController extends Controller
             $em->persist($role);
             $em->flush();
 
-            return $this->redirectToRoute('role_edit', array('id' => $role->getId()));
+            return $this->redirectToRoute('role_index', array('id' => $role->getId()));
         }
 
-        return $this->render('role/edit.html.twig', array(
+        return $this->render('@App/role/edit.html.twig', array(
             'role' => $role,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

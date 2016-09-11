@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class Noter_critRepository extends EntityRepository
 {
+    public function noter_critDoesNotExists($noter_crit){
+        $query = $this->createQueryBuilder('nc')
+                    ->where('nc.note = ?1')
+                    ->setParameter(1, $noter_crit->getNote())
+                    ->getQuery();
+        $res = $query->getOneOrNullResult();
+        
+        return !isset($res);
+    }
 }

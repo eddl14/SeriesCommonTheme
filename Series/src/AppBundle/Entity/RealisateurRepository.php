@@ -12,4 +12,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class RealisateurRepository extends EntityRepository
 {
+    public function episodeDoesNotExists($episode){
+        $query = $this->createQueryBuilder('r')
+                    ->where('r.nomRealisateur = ?1')
+                    ->andwhere('r.prenomRealisateur =?2')
+                    ->setParameter(1, $episode->getNomRealisateur())
+                    ->setParameter(2, $episode->getPrenomRealisateur())
+                    ->getQuery();
+        $res = $query->getOneOrNullResult();
+        
+        return !isset($res);
+    }
 }

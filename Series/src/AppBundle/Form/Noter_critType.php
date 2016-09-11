@@ -16,9 +16,6 @@ class Noter_critType extends AbstractType
     {
         $builder
             ->add('note')
-            ->add('critiquesUtilisateurs')
-            ->add('notesCritiques')
-            ->add('utilisateurs')
         ;
     }
     

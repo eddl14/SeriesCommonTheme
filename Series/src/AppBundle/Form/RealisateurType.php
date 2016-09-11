@@ -17,7 +17,6 @@ class RealisateurType extends AbstractType
         $builder
             ->add('nomRealisateur')
             ->add('prenomRealisateur')
-            ->add('episodes')
         ;
     }
     

@@ -28,7 +28,7 @@ class Noter_critController extends Controller
 
         $noter_crits = $em->getRepository('AppBundle:Noter_crit')->findAll();
 
-        return $this->render('noter_crit/index.html.twig', array(
+        return $this->render('@App/noter_crit/index.html.twig', array(
             'noter_crits' => $noter_crits,
         ));
     }
@@ -46,14 +46,22 @@ class Noter_critController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($noter_crit);
-            $em->flush();
-
+            
+            if($this->getDoctrine->getRepository('AppBundle:Noter_crit')->noter_critDoesNotExists($noter_crit)){
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($noter_crit);
+                $em->flush();
+            }else{
+          
+                  $session=$request->getSession();
+                  $session->getFlashBag()->add('info_noter_crit','Vous avez déjà noté cette critique !');
+                  
+                  return $this->render('@App/noter_crit/new.html.twig',array('form' => $form->createView(),));
+            }
             return $this->redirectToRoute('noter_crit_show', array('id' => $noter_crit->getId()));
         }
 
-        return $this->render('noter_crit/new.html.twig', array(
+        return $this->render('@App/noter_crit/new.html.twig', array(
             'noter_crit' => $noter_crit,
             'form' => $form->createView(),
         ));
@@ -69,7 +77,7 @@ class Noter_critController extends Controller
     {
         $deleteForm = $this->createDeleteForm($noter_crit);
 
-        return $this->render('noter_crit/show.html.twig', array(
+        return $this->render('@App/noter_crit/show.html.twig', array(
             'noter_crit' => $noter_crit,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -92,10 +100,10 @@ class Noter_critController extends Controller
             $em->persist($noter_crit);
             $em->flush();
 
-            return $this->redirectToRoute('noter_crit_edit', array('id' => $noter_crit->getId()));
+            return $this->redirectToRoute('noter_crit_index', array('id' => $noter_crit->getId()));
         }
 
-        return $this->render('noter_crit/edit.html.twig', array(
+        return $this->render('@App/noter_crit/edit.html.twig', array(
             'noter_crit' => $noter_crit,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

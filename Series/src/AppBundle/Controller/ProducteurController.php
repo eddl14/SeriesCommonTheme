@@ -28,7 +28,7 @@ class ProducteurController extends Controller
 
         $producteurs = $em->getRepository('AppBundle:Producteur')->findAll();
 
-        return $this->render('producteur/index.html.twig', array(
+        return $this->render('@App/producteur/index.html.twig', array(
             'producteurs' => $producteurs,
         ));
     }
@@ -46,14 +46,23 @@ class ProducteurController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($producteur);
-            $em->flush();
+            
+            if($this->getDoctrine->getRepository('AppBundle:Producteur')->producteurDoesNotExists($producteur)){
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($producteur);
+                $em->flush();
+            }else{
+          
+                  $session=$request->getSession();
+                  $session->getFlashBag()->add('info_producteur','Ce producteur a déjà été ajouté !');
+                  
+                  return $this->render('@App/producteur/new.html.twig',array('form' => $form->createView(),));
+            }
 
             return $this->redirectToRoute('producteur_show', array('id' => $producteur->getId()));
         }
 
-        return $this->render('producteur/new.html.twig', array(
+        return $this->render('@App/producteur/new.html.twig', array(
             'producteur' => $producteur,
             'form' => $form->createView(),
         ));
@@ -69,7 +78,7 @@ class ProducteurController extends Controller
     {
         $deleteForm = $this->createDeleteForm($producteur);
 
-        return $this->render('producteur/show.html.twig', array(
+        return $this->render('@App/producteur/show.html.twig', array(
             'producteur' => $producteur,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -92,10 +101,10 @@ class ProducteurController extends Controller
             $em->persist($producteur);
             $em->flush();
 
-            return $this->redirectToRoute('producteur_edit', array('id' => $producteur->getId()));
+            return $this->redirectToRoute('producteur_index', array('id' => $producteur->getId()));
         }
 
-        return $this->render('producteur/edit.html.twig', array(
+        return $this->render('@App/producteur/edit.html.twig', array(
             'producteur' => $producteur,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

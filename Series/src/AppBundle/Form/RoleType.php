@@ -16,8 +16,6 @@ class RoleType extends AbstractType
     {
         $builder
             ->add('role')
-            ->add('acteurs')
-            ->add('seriesRoles')
         ;
     }
     

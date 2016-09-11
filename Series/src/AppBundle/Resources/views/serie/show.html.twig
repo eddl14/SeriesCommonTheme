@@ -1,0 +1,52 @@
+{% extends '@App/default/index.html.twig' %}
+
+{% block main %}
+    <h1>Serie</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ serie.id }}</td>
+            </tr>
+            <tr>
+                <th>Nomserie</th>
+                <td>{{ serie.nomSerie }}</td>
+            </tr>
+            <tr>
+                <th>Nomoriginalserie</th>
+                <td>{{ serie.nomOriginalSerie }}</td>
+            </tr>
+            <tr>
+                <th>Synopsisserie</th>
+                <td>{{ serie.synopsisSerie }}</td>
+            </tr>
+            <tr>
+                <th>Resumeserie</th>
+                <td>{{ serie.resumeSerie }}</td>
+            </tr>
+            <tr>
+                <th>Anneeprodserie</th>
+                <td>{% if serie.anneeProdSerie %}{{ serie.anneeProdSerie|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Posterserie</th>
+                <td>{{ serie.posterSerie }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('serie_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('serie_edit', { 'id': serie.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

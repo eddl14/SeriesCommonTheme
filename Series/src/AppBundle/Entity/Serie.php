@@ -31,7 +31,7 @@ class Serie
      */
     private $utilisateurs;
     /**
-     * @OneToOne(targetEntity="CritiqueUtilisateur", inversedBy="series")
+     * @OneToMany(targetEntity="CritiqueUtilisateur", mappedBy="series")
      * 
      */
     private $critiques;
@@ -511,5 +511,28 @@ class Serie
     public function getProducteurs()
     {
         return $this->producteurs;
+    }
+
+    /**
+     * Add critiques
+     *
+     * @param \AppBundle\Entity\CritiqueUtilisateur $critiques
+     * @return Serie
+     */
+    public function addCritique(\AppBundle\Entity\CritiqueUtilisateur $critiques)
+    {
+        $this->critiques[] = $critiques;
+
+        return $this;
+    }
+
+    /**
+     * Remove critiques
+     *
+     * @param \AppBundle\Entity\CritiqueUtilisateur $critiques
+     */
+    public function removeCritique(\AppBundle\Entity\CritiqueUtilisateur $critiques)
+    {
+        $this->critiques->removeElement($critiques);
     }
 }

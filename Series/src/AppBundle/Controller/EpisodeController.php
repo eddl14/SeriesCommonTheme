@@ -2,12 +2,13 @@
 
 namespace AppBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use AppBundle\Form\EpisodeType;
+use AppBundle\Entity\Episode;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use AppBundle\Entity\Episode;
-use AppBundle\Form\EpisodeType;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Form;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Episode controller.
@@ -28,7 +29,7 @@ class EpisodeController extends Controller
 
         $episodes = $em->getRepository('AppBundle:Episode')->findAll();
 
-        return $this->render('episode/index.html.twig', array(
+        return $this->render('@App/episode/index.html.twig', array(
             'episodes' => $episodes,
         ));
     }
@@ -46,14 +47,22 @@ class EpisodeController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($episode);
-            $em->flush();
-
+            
+            if($this->getDoctrine->getRepository('AppBundle:Episode')->episodeDoesNotExists($episode)){
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($episode);
+                $em->flush();
+            }else{
+          
+                  $session=$request->getSession();
+                  $session->getFlashBag()->add('info_episode','Cet episode a déjà été ajouté !');
+                  
+                  return $this->render('@App/episode/new.html.twig',array('form' => $form->createView(),));
+            }
             return $this->redirectToRoute('episode_show', array('id' => $episode->getId()));
         }
 
-        return $this->render('episode/new.html.twig', array(
+        return $this->render('@App/episode/new.html.twig', array(
             'episode' => $episode,
             'form' => $form->createView(),
         ));
@@ -69,7 +78,7 @@ class EpisodeController extends Controller
     {
         $deleteForm = $this->createDeleteForm($episode);
 
-        return $this->render('episode/show.html.twig', array(
+        return $this->render('@App/episode/show.html.twig', array(
             'episode' => $episode,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -92,10 +101,10 @@ class EpisodeController extends Controller
             $em->persist($episode);
             $em->flush();
 
-            return $this->redirectToRoute('episode_edit', array('id' => $episode->getId()));
+            return $this->redirectToRoute('episode_index', array('id' => $episode->getId()));
         }
 
-        return $this->render('episode/edit.html.twig', array(
+        return $this->render('@App/episode/edit.html.twig', array(
             'episode' => $episode,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -127,7 +136,7 @@ class EpisodeController extends Controller
      *
      * @param Episode $episode The Episode entity
      *
-     * @return \Symfony\Component\Form\Form The form
+     * @return Form The form
      */
     private function createDeleteForm(Episode $episode)
     {

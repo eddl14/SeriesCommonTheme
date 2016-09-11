@@ -12,4 +12,25 @@ use Doctrine\ORM\EntityRepository;
  */
 class UtilisateurRepository extends EntityRepository
 {
+    public function utilisateurDoesNotExists($utilisateur){
+        $query = $this->createQueryBuilder('u')
+                    ->where('u.nomUtilisateur = ?1')
+                    ->andWhere('u.prenomUtilisateur = ?2')
+                    ->andwhere('u.pseudoUtilisateur = ?3')
+                    ->andwhere('u.mdpUtilisateur = ?4')
+                    ->andwhere('u.mailUtilisateur = ?5')
+                    ->andwhere('u.dateNaissance =?6')
+                    ->andwhere('u.photoProfil = ?7')
+                    ->setParameter(1, $utilisateur->getNomUtilisateur())
+                    ->setParameter(2, $utilisateur->getPrenomUtilisateur())
+                    ->setParameter(3, $utilisateur->getPseudoUtilisateur())
+                    ->setParameter(4, $utilisateur->getMdpUtilisateur())
+                    ->setParameter(5, $utilisateur->getMailUtilisateur())
+                    ->setParameter(6, $utilisateur->getDateNaissance())
+                    ->setParameter(7, $utilisateur->getPhotoProfil())
+                    ->getQuery();
+        $res = $query->getOneOrNullResult();
+        
+        return !isset($res);
+    }
 }

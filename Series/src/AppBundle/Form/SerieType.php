@@ -5,6 +5,8 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class SerieType extends AbstractType
 {
@@ -15,17 +17,12 @@ class SerieType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nomSerie')
-            ->add('nomOriginalSerie')
-            ->add('synopsisSerie')
-            ->add('resumeSerie')
-            ->add('anneeProdSerie', 'datetime')
-            ->add('posterSerie')
-            ->add('utilisateurs')
-            ->add('critiques')
-            ->add('acteurs')
-            ->add('genres')
-            ->add('producteurs')
+            ->add('nomSerie',TextType::class,['label'=>'Nom'])
+            ->add('nomOriginalSerie',TextType::class,['label'=>'Nom original'])
+            ->add('synopsisSerie',TextType::class,['label'=>'Synopsis'])
+            ->add('resumeSerie',TextType::class,['label'=>'Résume'])
+            ->add('anneeProdSerie',DateType::class,['widget'=>'single_text','format'=>'yyyy-MM-dd'])
+            ->add('posterSerie',TextType::class,['label'=>'Poster'])
         ;
     }
     

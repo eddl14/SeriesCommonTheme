@@ -100,4 +100,44 @@ class Realisateur
     {
         return $this->prenomRealisateur;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->episodes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add episodes
+     *
+     * @param \AppBundle\Entity\Episode $episodes
+     * @return Realisateur
+     */
+    public function addEpisode(\AppBundle\Entity\Episode $episodes)
+    {
+        $this->episodes[] = $episodes;
+
+        return $this;
+    }
+
+    /**
+     * Remove episodes
+     *
+     * @param \AppBundle\Entity\Episode $episodes
+     */
+    public function removeEpisode(\AppBundle\Entity\Episode $episodes)
+    {
+        $this->episodes->removeElement($episodes);
+    }
+
+    /**
+     * Get episodes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEpisodes()
+    {
+        return $this->episodes;
+    }
 }

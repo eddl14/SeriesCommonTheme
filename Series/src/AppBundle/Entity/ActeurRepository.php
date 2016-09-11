@@ -12,4 +12,16 @@ use Doctrine\ORM\EntityRepository;
  */
 class ActeurRepository extends EntityRepository
 {
+    
+    public function actorDoesNotExists($acteur){
+        $query = $this->createQueryBuilder('a')
+                    ->where('a.nomActeur = ?1')
+                    ->andWhere('a.prenomActeur = ?2')
+                    ->setParameter(1, $acteur->getNomActeur())
+                    ->setParameter(2, $acteur->getPrenomActeur())
+                    ->getQuery();
+        $res = $query->getOneOrNullResult();
+        
+        return !isset($res);
+    }
 }
