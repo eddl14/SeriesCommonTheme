@@ -51,58 +51,58 @@ Jon Arryn, venant de décéder, il part dans le nord du royaume demander à son 
  accepte à contre-cœur de partir à la cour avec ses deux filles Arya et Sansa, alors que Jon Snow, son fils bâtard, se prépare à intégrer la fameuse Garde de Nuit : la confrérie protégeant le royaume depuis des siècles à son septentrion, de toute créature pouvant
 provenir d'au-delà du Mur protecteur. Mais, juste avant le départ pour le Sud, Bran, fils Stark, fait une découverte en escaladant une tour de Winterfell dont découleront des conséquences inattendues…
     Dans le même temps, sur le continent Est, Viserys Targaryen, héritier « légitime » en exil des Sept Couronnes et fils d'Aerys, projette de marier sa jeune sœur Daenerys au khal Drogo, le chef d'une puissante horde de cavaliers nomades afin de s'en faire des alliés, 
-en vue de la reconquête du royaume. Mais Viserys est presque aussi instable mentalement que son père. ","2011"),
+en vue de la reconquête du royaume. Mais Viserys est presque aussi instable mentalement que son père. ","2011-02-03"),
 ("saison", 2, "
     Après la mort du roi Robert Baratheon et d'Eddard Stark, la légitimité du roi Joffrey est contestée par Stannis et Renly, frères de Robert, tandis que Sansa Stark est retenue comme otage à Port-Réal. Robb Stark poursuit sa rébellion pour venger son père et libérer sa sœur,
  bien que personne ne sache où se trouve Arya Stark. Lord Tywin Lannister, père de la Reine régente Cersei et grand-père du roi, qui la détient sans le savoir, continue de son côté à lutter à la fois contre les Baratheon et contre les Nordiens de Robb Stark. Chaque camp cherche de nouveaux alliés, 
 et la guerre se prolonge, ignorant la menace d'au-delà du Mur. En effet, Lord Jeor Mormont continue de guider la Garde de Nuit face aux Sauvageons, soutenu par Jon Snow, cherchant désespérément un moyen d'arrêter la marche de leur immense armée vers le sud.
-    De l'autre côté du Détroit, après avoir perdu les Dothraki, Daenerys Targaryen emmène ses dragons jusqu'à la cité de Qarth, où elle espère trouver un appui en vue de reconquérir les Sept-Couronnes. ","2012"),
+    De l'autre côté du Détroit, après avoir perdu les Dothraki, Daenerys Targaryen emmène ses dragons jusqu'à la cité de Qarth, où elle espère trouver un appui en vue de reconquérir les Sept-Couronnes. ","2012-04-07"),
 ("saison", 1, "
     Walter « Walt » White est un professeur de chimie dans un lycée du Nouveau-Mexique et un père de famille de 50 ans. Sa femme Skyler est enceinte et son fils Walter Jr., est handicapé. Son quotidien déjà morose devient carrément noir lorsqu'il apprend qu'il est atteint d'un incurable cancer des poumons. 
 Les médecins ne lui donnent pas plus de deux ans à vivre.
     Hank, son beau-frère et agent à la DEA, lui fait part des énormes sommes d'argent brassées par le marché de la drogue. Afin d'économiser suffisamment d'argent pour sa famille lorsqu'il ne sera plus de ce monde, Walter décide de s'associer avec Jesse Pinkman, un de ses anciens élèves devenu junkie et accessoirement dealer.
- Grâce à ses connaissances poussées en chimie, Walter produit de la méthamphétamine à la limite de la perfection tandis que Jesse se charge de la distribution du \"Blue Sky\", surnom donné au produit en raison de sa pureté et de son aspect bleuté. Le duo improvisé met alors en place un labo itinérant dans un vieux camping-car et 
-commence à « cuisiner » dans le secret absolu au milieu d'un désert d'Albuquerque.Les deux hommes seront vites dépassés par leur double vie et devront faire face à la violente réalité du milieu de la drogue qui les plongera dans une longue descente aux enfers. ","2008"),
+ Grâce à ses connaissances poussées en chimie, Walter produit de la méthamphétamine à la limite de la perfection tandis que Jesse se charge de la distribution du 'Blue Sky', surnom donné au produit en raison de sa pureté et de son aspect bleuté. Le duo improvisé met alors en place un labo itinérant dans un vieux camping-car et 
+commence à « cuisiner » dans le secret absolu au milieu d'un désert d'Albuquerque.Les deux hommes seront vites dépassés par leur double vie et devront faire face à la violente réalité du milieu de la drogue qui les plongera dans une longue descente aux enfers. ","2008-01-06"),
 ("saison", 2, "
     Walter commence à se faire un nom dans le milieu de la drogue, sous le pseudonyme d'Heisenberg. La nouvelle double vie de Walter manque à maintes reprises d'être découverte par sa famille, à qui il a finalement avoué son cancer. Skyler, très inquiète, décide de reprendre son ancien travail de comptable, alors qu'elle est à huit mois de grossesse. 
 Mais ses soupçons envers son mari sont de plus en plus insistants. Walt et Jesse décident de monter leur propre affaire de trafic de drogue. Hank est sur la trace de Heisenberg sans savoir qu'il s'agit de son beau frère Walter White. La confiance de Walter en Jesse s'effrite lorsque celui-ci commence à consommer de la drogue intempestivement. 
-Peu après, le cancer de Walter est suffisamment freiné pour pouvoir être opéré. Sous l'effet de l'anesthésie, dans un lapsus, Walter révèle à sa femme qu'il a bien un secret.","2009"),
+Peu après, le cancer de Walter est suffisamment freiné pour pouvoir être opéré. Sous l'effet de l'anesthésie, dans un lapsus, Walter révèle à sa femme qu'il a bien un secret.","2009-05-08"),
 ("saison", 1, "
-    A VENIR","2015"),
+    A VENIR","2015-04-09"),
 ("saison", 2, "
-    A VENIR","2016"),
+    A VENIR","2016-01-01"),
 ("saison", 1, "
     La série débute dans les rues de Washington. Le député Francis Underwood tue un chien blessé par une voiture en l'étranglant, puis s'adresse au spectateur en affirmant qu'il faut parfois faire des choses déplaisantes, mais nécessaires. L'action se concentre sur ce parlementaire démocrate de Caroline du Sud, puissant et ivre de pouvoir. 
 Après avoir soutenu le candidat Garrett Walker et permis son élection à la Présidence des États-Unis contre la promesse d'être nommé Secrétaire d'État, Underwood est trahi et n'accède pas à ce poste : le président le juge utile dans sa fonction de whip de la majorité démocrate. Profondément déçu, il se comporte en parfait lieutenant du président et l'assiste fidèlement dans sa tâche, 
-mais élabore dans le même temps une stratégie pour l'évincer du pouvoir.","2013"),
+mais élabore dans le même temps une stratégie pour l'évincer du pouvoir.","2013-06-06"),
 ("saison", 2, "
     Alors que Frank Underwood est sur le point de prendre ses fonctions, Zoe Barnes et deux de ses collègues, Lucas Goodwin et Janine Skorsky, poursuivent leurs investigations et parviennent à localiser Rachel Posner. L'homme de main de Frank, Douglas Stamper, force Rachel à habiter dans un endroit isolé. Underwood donne rendez-vous à Zoe Barnes dans le métro de Washington et la pousse sous une rame, 
 sans être vu. Janine abandonne ses recherches et s'installe à Ithaca (New York) afin d'éviter d'être tuée elle aussi. La mort de Zoe encourage Lucas à continuer seul. Il sollicite l'aide d'un hacker, Gavin Orsay, pour retrouver l'historique des conversations entre Frank et Zoe, mais celui-ci travaille pour Doug et a pour mission de piéger Lucas. Ce dernier est arrêté par le FBI et est accusé de cyber-terrorisme.
- Plus tard dans la saison, le hacker fait du chantage à Doug en évoquant Rachel Posner. Craignant de devoir déménager à nouveau et menacée par Doug, elle le frappe violemment à la tête avec une pierre, le laissant inanimé dans la forêt. Elle s'enfuit au volant de sa voiture.","2014"),
+ Plus tard dans la saison, le hacker fait du chantage à Doug en évoquant Rachel Posner. Craignant de devoir déménager à nouveau et menacée par Doug, elle le frappe violemment à la tête avec une pierre, le laissant inanimé dans la forêt. Elle s'enfuit au volant de sa voiture.","2014-03-06"),
 ("saison", 1, "
-    A VENIR","2016"),
+    A VENIR","2016-02-02"),
 ("saison", 2, "
-    A VENIR","2017"),
+    A VENIR","2017-06-06"),
 ("Murder House", 1, "
-    La première saison de la série est centrée autour de la famille Harmon composée de Ben, Vivien et Violet. Peu après que Vivien a fait une fausse couche et que Ben l'a trompée avec l’une de ses étudiantes, les Harmon décident de quitter Boston et achètent une maison victorienne à Los Angeles.","2011"),
+    La première saison de la série est centrée autour de la famille Harmon composée de Ben, Vivien et Violet. Peu après que Vivien a fait une fausse couche et que Ben l'a trompée avec l’une de ses étudiantes, les Harmon décident de quitter Boston et achètent une maison victorienne à Los Angeles.","2011-04-04"),
 ("Asylum", 2, "
     La deuxième saison est centrée sur l'asile psychiatrique (asylum en anglais) de Briarcliff, dirigé de main de fer en 1964 par Sœur Jude (Judy Martin pour l'état civil), une nonne autoritaire et sadique qui prend sa mission très à cœur, cherchant la rédemption pour une faute passée. Elle est aidée dans cette tâche par la jeune et naïve Sœur Mary-Eunice et le Dr Arthur Arden, un médecin au passé obscur qui s'adonne à des expérimentations perverses. 
-L'établissement est sous les ordres d'un prêtre charismatique, arriviste et peu scrupuleux, Monseigneur Timothy Howards.","2012"),
+L'établissement est sous les ordres d'un prêtre charismatique, arriviste et peu scrupuleux, Monseigneur Timothy Howards.","2012-05-07"),
 ("saison", 1, "
-    The first series of Luther aired in Summer 2010 and received positive reviews from critics, getting an average of 5.9 million viewers per episode","2010"),
+    The first series of Luther aired in Summer 2010 and received positive reviews from critics, getting an average of 5.9 million viewers per episode","2010-06-06"),
 ("saison", 2, "
-    In August 2010, the BBC announced that it had commissioned a second series for 2011. Filming started in late September/early October 2010. Originally planned to be broadcast as two two-hour episodes,[9] it was shown as four one-hour episodes. The first episode was shown on BBC One on 14 June 2011.","2011"),
+    In August 2010, the BBC announced that it had commissioned a second series for 2011. Filming started in late September/early October 2010. Originally planned to be broadcast as two two-hour episodes,[9] it was shown as four one-hour episodes. The first episode was shown on BBC One on 14 June 2011.","2011-05-05"),
 ("saison",1,"Leo Eischer (Andreas Wilson) a grandi en tant que fils du scientifique David Eischer (Thomas W. Gabrielsson) avec les hubots. Il a une relation amoureuse avec la hubot Mimi (Lisette Pagler). Il dirige un groupe de hubots sauvages avec Niska (Eva Röse), et il est à l'avant-garde de la lutte pour leur liberté. Mimi, qui a été blessée, est enlevée par des vendeurs au noir. Réparée et reprogrammée, elle est revendue à un magasin de hubots. 
 Leo, accompagné du hubot Max, part à sa recherche, tandis que les autres rebelles cherchent refuge dans une église. Un double homicide a été découvert dans la maison même où ils avaient auparavant rechargé leurs batteries. Les policiers Beatrice Novak (Marie Robertson) et Ove Holm (Wahlström Ola) de l'EHURB (traduit en français par BSH pour Brigade Spéciale des Hubots), unité spécialisée du crime commis par des hubots, commencent la traque des hubots, suspects du double meurtre…",
 "2012"),
 ("saison",2,"La famille Engman, qui a recueilli Mimi (Lisette Pagler), se retrouve au cœur des événements qui se précipitent. Les enfants de David se retrouvent séparés, et seule Beatrice Eischer (Marie Robertson), le clone de la femme de David, continue de rechercher le précieux code permettant de libérer les hubots. Malheureusement, elle n'est pas la seule à le convoiter, et personne ne sait encore ce qui pourrait se passer s'il se répandait, car, parallèlement, 
-un virus très dangereux se répand chez les hubots. Malgré tout cela, certains enfants de David trouvent leur voie auprès des humains, Flash (Josephine Alhanko) devient Florentine Jarmeus, et fonde une famille, tandis que Mimi devient juriste en travaillant auprès d’Inger (Pia Halvorsen), changeant les mentalités en nous questionnant tous sur la définition de l'humain et sur son avenir","2013"),
+un virus très dangereux se répand chez les hubots. Malgré tout cela, certains enfants de David trouvent leur voie auprès des humains, Flash (Josephine Alhanko) devient Florentine Jarmeus, et fonde une famille, tandis que Mimi devient juriste en travaillant auprès d’Inger (Pia Halvorsen), changeant les mentalités en nous questionnant tous sur la définition de l'humain et sur son avenir","2013-08-08"),
 ("saison", 1, "
-    Après la mort mystérieuse de son mari, Norma Bates décide de refaire sa vie loin de l’Arizona, dans la petite ville de White Pine Bay dans l’Oregon, avec son fils, Norman. Elle rachète là-bas un vieux motel abandonné ainsi que le manoir qui trône majestueusement quelques mètres plus loin. À peine installés, des événements tragiques vont renforcer le lien qui existe entre eux.","2013"),
+    Après la mort mystérieuse de son mari, Norma Bates décide de refaire sa vie loin de l’Arizona, dans la petite ville de White Pine Bay dans l’Oregon, avec son fils, Norman. Elle rachète là-bas un vieux motel abandonné ainsi que le manoir qui trône majestueusement quelques mètres plus loin. À peine installés, des événements tragiques vont renforcer le lien qui existe entre eux.","2013-06-06"),
 ("saison", 2, "
-    A VENIR","2014"),
-("saison",1,"Cinq jeunes délinquants effectuant leurs peines de travaux d'intérêt général dans un centre communautaire, sont frappés par un éclair à la suite d'une tempête étrange. Ils découvrent ensuite que la foudre leur a donné des facultés surnaturelles.","2009"),
-("saison",2,"Les quatre ados ont retrouvé Nathan, et connaissent désormais son pouvoir. Cependant, ils sont sauvés les uns après les autres par un mystérieux individu d'une agilité remarquable, toujours là au bon moment, et dont l'identité reste un mystère…","2010");
+    A VENIR","2014-08-08"),
+("saison",1,"Cinq jeunes délinquants effectuant leurs peines de travaux d'intérêt général dans un centre communautaire, sont frappés par un éclair à la suite d'une tempête étrange. Ils découvrent ensuite que la foudre leur a donné des facultés surnaturelles.","2009-08-08"),
+("saison",2,"Les quatre ados ont retrouvé Nathan, et connaissent désormais son pouvoir. Cependant, ils sont sauvés les uns après les autres par un mystérieux individu d'une agilité remarquable, toujours là au bon moment, et dont l'identité reste un mystère…","2010-09-09");
 
 INSERT INTO episode(numeroEpisode,nomEpisode,nomOriginalEpisode,resumeEpisode)
 VALUES (1,"L'hiver vient","Winter is coming","Au delà d'un gigantesque mur de protection de glace dans le nord de Westeros. Robert Baratheon, le roi, arrive avec son cortège au sud du mur de Winterfell pour demander de l'aide à son vieil ami Eddard Stark. Dans le même temps, sur un autre continent, les derniers survivants de l'ancien régime Targaryen sont à la recherche d'une nouvelle alliance pour reprendre leur royaume de «l'usurpateur» roi Robert..."),
