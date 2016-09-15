@@ -10,6 +10,7 @@
     width: 230px;
     height: 30px;
     position: relative;
+    margin-top: 50px;
        
     line-height: 22px;
 }
@@ -42,7 +43,7 @@
     position: absolute;
     right: 0;
     top: 5px;
-    color: whitesmoke;
+    color: #cc1417;
     
 }
 .btn-primary:active{
