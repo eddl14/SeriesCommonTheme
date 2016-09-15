@@ -1,12 +1,8 @@
-{% extends '@App/default/index.html.twig' %}
+{% extends 'base.html.twig' %}
 
-{% block main %}
+{% block body %}
     <h1>Saison list</h1>
-    <ul>
-        <li>
-            <a href="{{ path('saison_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+
     <table>
         <thead>
             <tr>
@@ -26,7 +22,7 @@
                 <td>{{ saison.nomSaison }}</td>
                 <td>{{ saison.numeroSaison }}</td>
                 <td>{{ saison.resumeSaison }}</td>
-                <td>{{ saison.anneeProduction|date('Y-m-d') }}</td>
+                <td>{{ saison.anneeProduction }}</td>
                 <td>{{ saison.posterSaison }}</td>
                 <td>
                     <ul>
@@ -43,5 +39,9 @@
         </tbody>
     </table>
 
-    
+    <ul>
+        <li>
+            <a href="{{ path('saison_new') }}">Create a new entry</a>
+        </li>
+    </ul>
 {% endblock %}
