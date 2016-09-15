@@ -20,7 +20,7 @@ class SerieType extends AbstractType
             ->add('nomSerie',TextType::class,['label'=>'Nom'])
             ->add('nomOriginalSerie',TextType::class,['label'=>'Nom original'])
             ->add('synopsisSerie',TextType::class,['label'=>'Synopsis'])
-            ->add('resumeSerie',TextType::class,['label'=>'Résume'])
+            ->add('resumeSerie',TextType::class,['label'=>'Résumé'])
             ->add('anneeProdSerie',DateType::class,['widget'=>'single_text','format'=>'yyyy-MM-dd'])
             ->add('posterSerie',TextType::class,['label'=>'Poster'])
         ;

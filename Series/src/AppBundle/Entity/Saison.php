@@ -1,13 +1,18 @@
 <?php
-
 namespace AppBundle\Entity;
 
 use AppBundle\Entity\Episode;
 use AppBundle\Entity\Saison;
 use AppBundle\Entity\Serie;
+use AppBundle\Repository\SaisonRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\OneToMany;
+use Symfony\Component\Validator\Constraints\DateTime;
+
+
 
 
 
@@ -62,7 +67,7 @@ class Saison
     /**
      * @var DateTime
      *
-     * @ORM\Column(name="anneeProduction", type="datetimetz")
+     * @ORM\Column(name="anneeProduction", type="datetime")
      */
     private $anneeProduction;
 
@@ -203,16 +208,16 @@ class Saison
      */
     public function __construct()
     {
-        $this->episodes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->episodes = new ArrayCollection();
     }
 
     /**
      * Add episodes
      *
-     * @param \AppBundle\Entity\Episode $episodes
+     * @param Episode $episodes
      * @return Saison
      */
-    public function addEpisode(\AppBundle\Entity\Episode $episodes)
+    public function addEpisode(Episode $episodes)
     {
         $this->episodes[] = $episodes;
 
@@ -222,9 +227,9 @@ class Saison
     /**
      * Remove episodes
      *
-     * @param \AppBundle\Entity\Episode $episodes
+     * @param Episode $episodes
      */
-    public function removeEpisode(\AppBundle\Entity\Episode $episodes)
+    public function removeEpisode(Episode $episodes)
     {
         $this->episodes->removeElement($episodes);
     }
@@ -232,7 +237,7 @@ class Saison
     /**
      * Get episodes
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Collection 
      */
     public function getEpisodes()
     {
@@ -242,10 +247,10 @@ class Saison
     /**
      * Set series
      *
-     * @param \AppBundle\Entity\Serie $series
+     * @param Serie $series
      * @return Saison
      */
-    public function setSeries(\AppBundle\Entity\Serie $series = null)
+    public function setSeries(Serie $series = null)
     {
         $this->series = $series;
 
@@ -255,7 +260,7 @@ class Saison
     /**
      * Get series
      *
-     * @return \AppBundle\Entity\Serie 
+     * @return Serie 
      */
     public function getSeries()
     {

@@ -3,6 +3,8 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,11 +17,11 @@ class SaisonType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nomSaison')
-            ->add('numeroSaison')
-            ->add('resumeSaison')
-            ->add('anneeProduction')
-            ->add('posterSaison')
+            ->add('nomSaison',TextType::class,['label'=>'Nom'])
+            ->add('numeroSaison',TextType::class,['label'=>'Numéro saison'])
+            ->add('resumeSaison',TextType::class,['label'=>'Résumé'])
+            ->add('anneeProduction',DateType::class,['widget'=>'single_text','format'=>'yyyy-MM-dd'])
+            ->add('posterSaison',TextType::class,['label'=>'Poster'])
         ;
     }
     
