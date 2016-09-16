@@ -1,49 +1,29 @@
 {% extends '@App/base.html.twig' %}
 
 {% block body %}
-    <h1>Serie list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nomserie</th>
-                <th>Nomoriginalserie</th>
-                <th>Synopsisserie</th>
-                <th>Resumeserie</th>
-                <th>Anneeprodserie</th>
-                <th>Posterserie</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
+      {% block label %}
+        <h1> Liste des Séries </h1>
+    {% endblock %}
+      <a class="btn icon-btn btn-success" href="{{ path('serie_new') }}">Ajouter
+          <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>
+      </a>
+   
         <tbody>
-        {% for serie in series %}
-            <tr>
-                <td><a href="{{ path('serie_show', { 'id': serie.id }) }}">{{ serie.id }}</a></td>
-                <td>{{ serie.nomSerie }}</td>
-                <td>{{ serie.nomOriginalSerie }}</td>
-                <td>{{ serie.synopsisSerie }}</td>
-                <td>{{ serie.resumeSerie }}</td>
-                <td>{% if serie.anneeProdSerie %}{{ serie.anneeProdSerie|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ serie.posterSerie }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('serie_show', { 'id': serie.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('serie_edit', { 'id': serie.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('serie_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+            <ul class="list">
+                {% for serie  in series %}
+                    <li>
+                        <a href="{{ path('serie_show', { 'id': serie.id }) }}" class="framelist"  style="background-image: url({{asset(background|default('Img/background.png'))}})">
+                            <div class="bg">                    
+                                    {{ serie.nomOriginalSerie }}
+                                    
+                            </div> 
+                            <div class="synopsis">
+                                <span >{{ serie.synopsisSerie }}</span>
+                            </div>
+                               
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </tbody>       
 {% endblock %}

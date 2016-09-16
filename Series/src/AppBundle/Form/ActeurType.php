@@ -19,6 +19,7 @@ class ActeurType extends AbstractType
         $builder
             ->add('nomActeur',TextType::class,['label'=>'Nom'])
             ->add('prenomActeur',TextType::class,['label'=>'Prenom'])
+            ->add('photo',UrlType::class,['label'=>'Photo'])
         ;
     }
     

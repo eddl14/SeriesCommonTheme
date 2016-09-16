@@ -3,8 +3,15 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
+use Symfony\Component\Form\Test\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
+
+
+
 
 class GenreType extends AbstractType
 {
@@ -15,8 +22,9 @@ class GenreType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('libelleGenre')
-            ->add('ageConseille')
+            ->add('libelleGenre',TextType::class,['label'=>'Genre'])
+            ->add('ageConseille',NumberType::class,['label'=>'age'])
+            ->add('photo',UrlType::class,['label'=>'Photo'])
         ;
     }
     
