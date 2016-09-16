@@ -79,8 +79,8 @@ class SerieController extends Controller
         $deleteForm = $this->createDeleteForm($serie);
 
         return $this->render('@App/serie/show.html.twig', array(
-            'serie' => $serie,
-            'delete_form' => $deleteForm->createView(),
+            'serie' => $serie, 
+            'delete_form' => $deleteForm->createView() , 
         ));
     }
 

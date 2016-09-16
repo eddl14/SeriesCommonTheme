@@ -39,7 +39,7 @@ body{
 .banner{
     width:70%;    
     height: 225px;
-    background-image: url(../Img/AHS.png);
+    
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -78,6 +78,8 @@ body{
     display: block;
     font-family: Arial;    
     color: white;
+    font-family: "bauhaus 93";
+    font-size: 20px;
     text-decoration: none;    
     text-align: center;
 }
@@ -88,7 +90,7 @@ body{
     animation-fill-mode: forwards;
 }
 .banner ul li a:hover{
-    color:#000;
+    color:slategray;
 }
 .banner ul li a:active{
     color: red;   
@@ -119,18 +121,24 @@ body{
     float: left;
     margin-top: 20px;   
     overflow: auto;    
-    display: flex;
+    
 }
 
 .main{
-    overflow:auto;
+    overflow: auto;    
     width: 75%;    
-    height:880px ;
+    height:880px;
     background-color: rgba(255, 255, 255, 0.7);
     position: relative;
     margin-top: 20px;
     float: right;
-    display: flex;
+   
+}
+
+/*Text*/
+h1{
+    color: #CB1416;
+    font-family: "bauhaus 93";
 }
 
 
@@ -171,6 +179,7 @@ body{
     .header ul li a{
         display: block;
         font-size: 12px;
+        font-family: helvetica;
     }
     .banner{
         margin: 0px;

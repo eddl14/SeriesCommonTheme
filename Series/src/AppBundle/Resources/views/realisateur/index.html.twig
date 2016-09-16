@@ -1,7 +1,10 @@
 {% extends '@App/base.html.twig' %}
 
 {% block body %}
-    <h1>Realisateur list</h1>
+      {% block label %}
+        <h1> Liste des Réalisateurs</h1>
+    {% endblock %}
+    
 
     <table>
         <thead>
@@ -35,7 +38,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('realisateur_new') }}">Create a new entry</a>
+            <a href="{{ path('realisateur_new') }}">Ajouter un réalisateur</a>
         </li>
     </ul>
 {% endblock %}
