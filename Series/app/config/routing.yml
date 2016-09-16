@@ -1,3 +1,7 @@
+src_oc_user:
+    resource: "@srcOCUserBundle/Resources/config/routing.xml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

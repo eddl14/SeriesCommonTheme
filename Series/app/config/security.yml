@@ -21,9 +21,7 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-
-    access_control:
-        #- {path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https}
+            
         main:
             pattern:   ^/
             anonymous: true
@@ -34,6 +32,10 @@ security:
             logout:
                 path: logout
                 target: /platform
+                
+    access_control:
+        #- {path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https}
+        
             # activate different ways to authenticate
 
             # http_basic: ~
