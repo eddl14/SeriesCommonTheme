@@ -2,10 +2,17 @@
 
 namespace AppBundle\Entity;
 
+
 use AppBundle\Entity\Genre;
 use AppBundle\Entity\Serie;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use AppBundle\Repository\GenreRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
+
 
 
 
@@ -43,8 +50,16 @@ class Genre
      * @ORM\Column(name="ageConseille", type="string", length=255)
      */
     private $ageConseille;
+    
 
-
+    /**
+     * @var string
+     * 
+     * @Assert\Url(
+     *  message = "The url '{{ value }}' is not a valid url",
+     * )
+     */
+    private $photo;
     /**
      * Get id
      *
@@ -100,21 +115,45 @@ class Genre
     {
         return $this->ageConseille;
     }
+    
+     /**
+     * Get photo
+     *
+     * @return string 
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * Set photo
+     *
+     * @param string $photo
+     * @return Genre
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+    
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->series = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->series = new ArrayCollection();
     }
 
     /**
      * Add series
      *
-     * @param \AppBundle\Entity\Serie $series
+     * @param Serie $series
      * @return Genre
      */
-    public function addSeries(\AppBundle\Entity\Serie $series)
+    public function addSeries(Serie $series)
     {
         $this->series[] = $series;
 
@@ -124,9 +163,9 @@ class Genre
     /**
      * Remove series
      *
-     * @param \AppBundle\Entity\Serie $series
+     * @param Serie $series
      */
-    public function removeSeries(\AppBundle\Entity\Serie $series)
+    public function removeSeries(Serie $series)
     {
         $this->series->removeElement($series);
     }

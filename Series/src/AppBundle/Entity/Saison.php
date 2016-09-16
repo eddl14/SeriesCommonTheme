@@ -8,6 +8,7 @@ use AppBundle\Repository\SaisonRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\OneToMany;
 use Symfony\Component\Validator\Constraints\DateTime;
@@ -73,10 +74,12 @@ class Saison
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="posterSaison", type="string", length=255)
+
+     * @Assert\Url(
+     *  message = "The url '{{ value }}' is not a valid url",
+     * )
      */
-    private $posterSaison;
+    private $photo;
 
 
     /**
@@ -203,6 +206,30 @@ class Saison
     {
         return $this->posterSaison;
     }
+    
+     /**
+     * Get photo
+     *
+     * @return string 
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * Set photo
+     *
+     * @param string $photo
+     * @return Saison
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+    
     /**
      * Constructor
      */

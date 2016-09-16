@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use AppBundle\Repository\UtilisateurRepository;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\OneToMany;
 
@@ -106,10 +107,12 @@ class Utilisateur
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="photoProfil", type="string", length=255)
+
+     * @Assert\Url(
+     *  message = "The url '{{ value }}' is not a valid url",
+     * )
      */
-    private $photoProfil;
+    private $photo;
 
 
     /**
@@ -282,6 +285,30 @@ class Utilisateur
     {
         return $this->photoProfil;
     }
+    
+     /**
+     * Get photo
+     *
+     * @return string 
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * Set photo
+     *
+     * @param string $photo
+     * @return Utilisateur
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+    
     /**
      * Constructor
      */

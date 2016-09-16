@@ -1,10 +1,12 @@
 <?php
 
 namespace AppBundle\Entity;
-use Doctrine\ORM\Mapping as ORM;
+
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Symfony\Component\Validator\Constraints\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Acteur
@@ -47,7 +49,15 @@ class Acteur
      * @ORM\Column(name="prenomActeur", type="string", length=255)
      */
     private $prenomActeur;
-
+    
+   /**
+    * @var string
+    * 
+     * @Assert\Url(
+     *  message = "The url '{{ value }}' is not a valid url",
+     * )
+     */
+    private $photo;
     /**
      * Get id
      *
@@ -103,6 +113,30 @@ class Acteur
     {
         return $this->prenomActeur;
     }
+    
+     /**
+     * Get photo
+     *
+     * @return string 
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * Set photo
+     *
+     * @param string $photo
+     * @return Acteur
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+    
     /**
      * Constructor
      */

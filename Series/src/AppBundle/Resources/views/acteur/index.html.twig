@@ -14,9 +14,10 @@
                 {% for acteur in acteurs %}
                     <li>
                         <a href="{{ path('acteur_show', { 'id': acteur.id }) }}" class="framelist"  style="background-image: url({{asset(background|default('Img/avatar.gif'))}})">
-                            <div class="bg">                    
-                                    {{ acteur.nomActeur }}
+                            <div class="bg">  
                                     {{ acteur.prenomActeur }}
+                                    {{ acteur.nomActeur }}
+                                    
                             </div>                    
                         </a>
                     </li>
