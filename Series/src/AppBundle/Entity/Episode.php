@@ -7,6 +7,7 @@ use AppBundle\Entity\Saison;
 use AppBundle\Entity\Utilisateur;
 use AppBundle\Repository\EpisodeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\ManyToOne;
 
@@ -72,6 +73,14 @@ class Episode
      */
     private $resumeEpisode;
 
+    /**
+     * @var string
+     * 
+     * @Assert\Url(
+     *  message = "The url '{{ value }}' is not a valid url",
+     * )
+     */
+    private $photo;
 
     /**
      * Get id
@@ -174,22 +183,46 @@ class Episode
     {
         return $this->resumeEpisode;
     }
+    
+     /**
+     * Get photo
+     *
+     * @return string 
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * Set photo
+     *
+     * @param string $photo
+     * @return Episode
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+    
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->utilisateurs = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->realisateurs = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->utilisateurs = new ArrayCollection();
+        $this->realisateurs = new ArrayCollection();
     }
 
     /**
      * Add utilisateurs
      *
-     * @param \AppBundle\Entity\Utilisateur $utilisateurs
+     * @param Utilisateur $utilisateurs
      * @return Episode
      */
-    public function addUtilisateur(\AppBundle\Entity\Utilisateur $utilisateurs)
+    public function addUtilisateur(Utilisateur $utilisateurs)
     {
         $this->utilisateurs[] = $utilisateurs;
 
@@ -199,9 +232,9 @@ class Episode
     /**
      * Remove utilisateurs
      *
-     * @param \AppBundle\Entity\Utilisateur $utilisateurs
+     * @param Utilisateur $utilisateurs
      */
-    public function removeUtilisateur(\AppBundle\Entity\Utilisateur $utilisateurs)
+    public function removeUtilisateur(Utilisateur $utilisateurs)
     {
         $this->utilisateurs->removeElement($utilisateurs);
     }
@@ -209,7 +242,7 @@ class Episode
     /**
      * Get utilisateurs
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Collection 
      */
     public function getUtilisateurs()
     {
@@ -219,11 +252,9 @@ class Episode
     /**
      * Add realisateurs
      *
-     * @param \AppBundle\Entity\Realisateur $realisateurs
-     * @return Episode
+     * @param Realisateur  * @return Episode
      */
-    public function addRealisateur(\AppBundle\Entity\Realisateur $realisateurs)
-    {
+    public function addRealisateur(Realisateur $realisateurs) {
         $this->realisateurs[] = $realisateurs;
 
         return $this;
@@ -232,17 +263,15 @@ class Episode
     /**
      * Remove realisateurs
      *
-     * @param \AppBundle\Entity\Realisateur $realisateurs
-     */
-    public function removeRealisateur(\AppBundle\Entity\Realisateur $realisateurs)
-    {
+     * @param Realisateur  */
+    public function removeRealisateur(Realisateur $realisateurs)  {
         $this->realisateurs->removeElement($realisateurs);
     }
 
     /**
      * Get realisateurs
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Collection 
      */
     public function getRealisateurs()
     {

@@ -50,14 +50,14 @@ class Acteur
      */
     private $prenomActeur;
     
-    /**
-     * @ORM\Column(type="string")
-     *
+   /**
+    * @var string
+    * 
      * @Assert\Url(
      *  message = "The url '{{ value }}' is not a valid url",
      * )
      */
-    private $image;
+    private $photo;
     /**
      * Get id
      *
@@ -113,6 +113,30 @@ class Acteur
     {
         return $this->prenomActeur;
     }
+    
+     /**
+     * Get photo
+     *
+     * @return string 
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * Set photo
+     *
+     * @param string $photo
+     * @return Acteur
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+    
     /**
      * Constructor
      */

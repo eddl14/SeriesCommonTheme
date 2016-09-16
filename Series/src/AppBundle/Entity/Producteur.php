@@ -6,6 +6,7 @@ use AppBundle\Entity\Producteur;
 use AppBundle\Entity\Serie;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -45,6 +46,14 @@ class Producteur
     private $prenomProducteur;
 
 
+    /**
+     * @var string
+     * 
+     * @Assert\Url(
+     *  message = "The url '{{ value }}' is not a valid url",
+     * )
+     */
+    private $photo;
     /**
      * Get id
      *
@@ -100,6 +109,30 @@ class Producteur
     {
         return $this->prenomProducteur;
     }
+    
+     /**
+     * Get photo
+     *
+     * @return string 
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * Set photo
+     *
+     * @param string $photo
+     * @return Producteur
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+    
     /**
      * Constructor
      */

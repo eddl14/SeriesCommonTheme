@@ -6,6 +6,7 @@ use AppBundle\Entity\Episode;
 use AppBundle\Entity\Realisateur;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 
@@ -45,6 +46,14 @@ class Realisateur
     private $prenomRealisateur;
 
 
+    /**
+     * @var string
+     * 
+     * @Assert\Url(
+     *  message = "The url '{{ value }}' is not a valid url",
+     * )
+     */
+    private $photo;
     /**
      * Get id
      *

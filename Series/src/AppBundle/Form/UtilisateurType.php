@@ -3,8 +3,13 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
+use Symfony\Component\Form\Test\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
+
 
 class UtilisateurType extends AbstractType
 {
@@ -21,7 +26,7 @@ class UtilisateurType extends AbstractType
             ->add('mdpUtilisateur',TextType::class,['label'=>'Mdp'])
             ->add('mailUtilisateur',TextType::class,['label'=>'Mail'])
             ->add('dateNaissance', DateType::class,['widget'=>'single_text','format'=>'yyyy-MM-dd'])
-            ->add('photoProfil',TextType::class,['label'=>'Photo'])
+            ->add('photo',UrlType::class,['label'=>'Photo'])
         ;
     }
     
