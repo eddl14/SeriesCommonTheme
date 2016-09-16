@@ -1,6 +1,5 @@
-src_oc_user:
-    resource: "@srcOCUserBundle/Resources/config/routing.xml"
-    prefix:   /
+logout:
+    path: /logout
 
 app:
     resource: "@AppBundle/Controller/"
