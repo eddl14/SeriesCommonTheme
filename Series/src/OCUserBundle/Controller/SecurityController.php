@@ -29,6 +29,7 @@ class SecurityController extends Controller
          return $this->render('OCUserBundle::login.html.twig', array(
             'last_username' => $authenticationUtils->getLastUsername(),
                 'error'         => $authenticationUtils->getLastAuthenticationError(),
+             'registration'     => '<a href="htmlentities(register.html.twig)">or register you!</a>'
             ));
     } 
     

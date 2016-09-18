@@ -18,7 +18,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Table(name="utilisateur")
  * @ORM\Entity(repositoryClass="UtilisateurRepository")
  */
-class Utilisateur Implements UserInterface
+class Utilisateur Implements UserInterface, Serializable
 {
     /**
      * @var int
@@ -122,7 +122,11 @@ class Utilisateur Implements UserInterface
      */
     private $photo;
 
-
+     /**
+     * @ORM\Column(name="is_active", type="boolean")
+     */
+    private $isActive;
+    
     /**
      * Get id
      *
@@ -345,6 +349,7 @@ class Utilisateur Implements UserInterface
         $this->critiques = new \Doctrine\Common\Collections\ArrayCollection();
         $this->notesCritiques = new \Doctrine\Common\Collections\ArrayCollection();
         $this->notes_ser = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->isActive = true;
     }
 
     /**
