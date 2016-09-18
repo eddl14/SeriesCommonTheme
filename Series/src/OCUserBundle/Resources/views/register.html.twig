@@ -1,0 +1,15 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{{ form_start(form) }}
+
+    {{ form_row(form.nomUtilisateur) }}
+    {{ form_row(form.prenomUtilisateur) }}
+    {{ form_row(form.pseudoUtilisateur) }}
+    {{ form_row(form.plainMdpUtilisateur.first) }}
+    {{ form_row(form.plainMdpUtilisateur.second) }}
+    {{ form_row(form.mailUtilisateur) }}
+    {{ form_row(form.dateNaissance) }}
+    {{ form_row(form.photo) }}
+    
+    <button type="submit">Register!</button>
+{{ form_end(form) }}

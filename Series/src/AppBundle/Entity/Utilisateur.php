@@ -6,8 +6,10 @@ use AppBundle\Repository\UtilisateurRepository;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\OneToMany;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 
 /**
@@ -16,7 +18,7 @@ use Doctrine\ORM\Mapping\OneToMany;
  * @ORM\Table(name="utilisateur")
  * @ORM\Entity(repositoryClass="UtilisateurRepository")
  */
-class Utilisateur
+class Utilisateur Implements UserInterface
 {
     /**
      * @var int
@@ -80,21 +82,27 @@ class Utilisateur
     /**
      * @var string
      *
-     * @ORM\Column(name="pseudoUtilisateur", type="string", length=255)
+     * @ORM\Column(name="pseudoUtilisateur", type="string", length=255, unique=true)
      */
     private $pseudoUtilisateur;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(max=4096)
+     */
+    private $plainMdpUtilisateur;
+    
+    /**
      * @var string
      *
-     * @ORM\Column(name="mdpUtilisateur", type="string", length=255)
+     * @ORM\Column(name="mdpUtilisateur", type="string", length=64)
      */
     private $mdpUtilisateur;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="mailUtilisateur", type="string", length=255)
+     * @ORM\Column(name="mailUtilisateur", type="string", length=255, unique=true)
      */
     private $mailUtilisateur;
 
@@ -307,6 +315,23 @@ class Utilisateur
         $this->photo = $photo;
 
         return $this;
+    }
+    
+    public function getPlainMdpUtilisateur()
+    {
+        return $this->plainMdpUtilisateur;
+    }
+
+    public function setPlainMdpUtilisateur($mdpUtilisateur)
+    {
+        $this->plainMdpUtilisateur = $mdpUtilisateur;
+    }
+    
+    public function getSalt()
+    {
+        // The bcrypt algorithm doesn't require a separate salt.
+        // You *may* need a real salt if you choose a different encoder.
+        return null;
     }
     
     /**
@@ -552,4 +577,21 @@ class Utilisateur
     {
         return $this->note_critique;
     }
+
+    public function eraseCredentials() {
+        
+    }
+
+    public function getPassword() {
+        
+    }
+
+    public function getRoles() {
+        
+    }
+
+    public function getUsername() {
+        
+    }
+
 }

@@ -11,9 +11,11 @@ class DefaultController extends Controller
     /**
      * @Route("/", name="homepage")
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {   
+        $user=$this->getUser();
+        
         // replace this example code with whatever you need
-        return $this->render('@App/default/index.html.twig', ['background' => 'Img/AHS.png']);
+        return $this->render('@App/default/index.html.twig', ['background' => 'Img/AHS.png','user'=>$user]);
     }
 }

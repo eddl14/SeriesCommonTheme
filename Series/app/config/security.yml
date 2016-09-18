@@ -2,19 +2,19 @@
 # http://symfony.com/doc/current/book/security.html
 security:
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+            AppBundle\Entity\Utilisateur: 
+                algorithm: bcrypt
         
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_ADMIN:       [ROLE_AUTEUR, ROLE_MODERATEUR]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
         
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory:
-                users:
-                    user: { password: userpass, roles: ['ROLE_USER']}
-                    admin: { password: adminpass, roles:['ROLE_ADMIN']}
+        my_db:
+          entity:
+              class: AppBundle:Utilisateur
+              property: mailUtilisateur
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -22,16 +22,21 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
             
+        main_login:
+            pattern: ^/login$
+            anonymous: true
+            
         main:
             pattern:   ^/
-            anonymous: true
-            provider:  in_memory
+            http_basic: ~
+            anonymous: false
+            provider:  my_db
             form_login:
                 login_path: login
                 check_path: login_check
             logout:
                 path: logout
-                target: /platform
+                target: /
                 
     access_control:
         #- {path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https}
