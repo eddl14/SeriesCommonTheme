@@ -18,4 +18,13 @@ class DefaultController extends Controller
         // replace this example code with whatever you need
         return $this->render('@App/default/index.html.twig', ['background' => 'Img/AHS.png','user'=>$user]);
     }
+    
+    /**
+     * @Route("/admin")
+     */
+    public function adminAction(Response $response)
+    {
+        return new Response('<html><body>Admin page!</body></html>');
+    }
+    
 }
