@@ -12,13 +12,14 @@ use Doctrine\ORM\Mapping\OneToMany;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 
+
 /**
  * Utilisateur
  *
  * @ORM\Table(name="utilisateur")
- * @ORM\Entity(repositoryClass="UtilisateurRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\UtilisateurRepository")
  */
-class Utilisateur Implements UserInterface, Serializable
+class Utilisateur Implements UserInterface, \Serializable
 {
     /**
      * @var int
@@ -592,11 +593,31 @@ class Utilisateur Implements UserInterface, Serializable
     }
 
     public function getRoles() {
-        
+        return array('ROLE_USER');
     }
 
     public function getUsername() {
         
+    }
+
+    public function serialize() {
+        return serialize(array(
+            $this->id,
+            $this->pseudoUtilisateur,
+            $this->mdpUtilisateur,
+            // see section on salt below
+            // $this->salt,
+        ));
+    }
+
+    public function unserialize($serialized) {
+            list (
+            $this->id,
+            $this->pseudoUtilisateur,
+            $this->mdpUtilisateur,
+            // see section on salt below
+            // $this->salt
+        ) = unserialize($serialized);
     }
 
 }

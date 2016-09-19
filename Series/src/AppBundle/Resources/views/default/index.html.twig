@@ -5,7 +5,7 @@
         <h1>Bienvenue sur Fishblock </h1>
         
          {% if user is defined %}
-                   {{ bonjour }}
+            Bonjour {{ app.user.username }} !
          {% endif %}
     {% endblock %}
 {% endblock %}

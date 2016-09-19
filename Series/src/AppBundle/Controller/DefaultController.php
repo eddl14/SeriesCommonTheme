@@ -5,7 +5,8 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-
+use Symfony\Component\Security\Core\SecurityContext;
+use Symfony\Component\Security\Core\User\User;
 class DefaultController extends Controller
 {
     /**
@@ -13,9 +14,17 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {   
-       
+       $user=$this->getUser();
+
+       if (null === $user) {
+  // Ici, l'utilisateur est anonyme ou l'URL n'est pas derrière un pare-feu
+           return $this->render('@App/default/index.html.twig', ['background' => 'Img/AHS.png']);
+       } else {
+  // Ici, $user est une instance de notre classe User
+           return $this->render('@App/default/index.html.twig', ['background' => 'Img/AHS.png','user'=>$user]);
+       }
         // replace this example code with whatever you need
-        return $this->render('@App/default/index.html.twig', ['background' => 'Img/AHS.png']);
+        
     }
     
     /**
