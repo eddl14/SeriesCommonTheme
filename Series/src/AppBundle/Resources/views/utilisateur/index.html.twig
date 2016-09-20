@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends '@App/base.html.twig' %}
 
 {% block body %}
     <h1>Utilisateur list</h1>
@@ -26,8 +26,8 @@
                 <td>{{ utilisateur.pseudoUtilisateur }}</td>
                 <td>{{ utilisateur.mdpUtilisateur }}</td>
                 <td>{{ utilisateur.mailUtilisateur }}</td>
-                <td>{% if utilisateur.dateNaissance %}{{ utilisateur.dateNaissance|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ utilisateur.photoProfil }}</td>
+                <td>{% if utilisateur.dateNaissance %}{{ utilisateur.dateNaissance|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ utilisateur.photo }}</td>
                 <td>
                     <ul>
                         <li>

@@ -6,17 +6,20 @@ use AppBundle\Repository\UtilisateurRepository;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\OneToMany;
+use Symfony\Component\Security\Core\User\UserInterface;
+
 
 
 /**
  * Utilisateur
  *
  * @ORM\Table(name="utilisateur")
- * @ORM\Entity(repositoryClass="UtilisateurRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\UtilisateurRepository")
  */
-class Utilisateur
+class Utilisateur Implements UserInterface, \Serializable
 {
     /**
      * @var int
@@ -80,21 +83,27 @@ class Utilisateur
     /**
      * @var string
      *
-     * @ORM\Column(name="pseudoUtilisateur", type="string", length=255)
+     * @ORM\Column(name="pseudoUtilisateur", type="string", length=255, unique=true)
      */
     private $pseudoUtilisateur;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(max=4096)
+     */
+    private $plainMdpUtilisateur;
+    
+    /**
      * @var string
      *
-     * @ORM\Column(name="mdpUtilisateur", type="string", length=255)
+     * @ORM\Column(name="mdpUtilisateur", type="string", length=64)
      */
     private $mdpUtilisateur;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="mailUtilisateur", type="string", length=255)
+     * @ORM\Column(name="mailUtilisateur", type="string", length=255, unique=true)
      */
     private $mailUtilisateur;
 
@@ -107,14 +116,17 @@ class Utilisateur
 
     /**
      * @var string
-
-     * @Assert\Url(
-     *  message = "The url '{{ value }}' is not a valid url",
+     *
+     * @ORM\Column(name="photo", type="string", length=255)
      * )
      */
     private $photo;
 
-
+     /**
+     * @ORM\Column(name="is_active", type="boolean")
+     */
+    private $isActive;
+    
     /**
      * Get id
      *
@@ -285,6 +297,47 @@ class Utilisateur
     {
         return $this->photoProfil;
     }
+    
+     /**
+     * Get photo
+     *
+     * @return string 
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * Set photo
+     *
+     * @param string $photo
+     * @return Utilisateur
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+    
+    public function getPlainMdpUtilisateur()
+    {
+        return $this->plainMdpUtilisateur;
+    }
+
+    public function setPlainMdpUtilisateur($mdpUtilisateur)
+    {
+        $this->plainMdpUtilisateur = $mdpUtilisateur;
+    }
+    
+    public function getSalt()
+    {
+        // The bcrypt algorithm doesn't require a separate salt.
+        // You *may* need a real salt if you choose a different encoder.
+        return null;
+    }
+    
     /**
      * Constructor
      */
@@ -296,6 +349,7 @@ class Utilisateur
         $this->critiques = new \Doctrine\Common\Collections\ArrayCollection();
         $this->notesCritiques = new \Doctrine\Common\Collections\ArrayCollection();
         $this->notes_ser = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->isActive = true;
     }
 
     /**
@@ -527,5 +581,65 @@ class Utilisateur
     public function getNoteCritique()
     {
         return $this->note_critique;
+    }
+
+    public function eraseCredentials() {
+        
+    }
+
+    public function getPassword() {
+        
+    }
+
+    public function getRoles() {
+        return array('ROLE_USER');
+    }
+
+    public function getUsername() {
+        
+    }
+
+    public function serialize() {
+        return serialize(array(
+            $this->id,
+            $this->pseudoUtilisateur,
+            $this->mdpUtilisateur,
+            // see section on salt below
+            // $this->salt,
+        ));
+    }
+
+    public function unserialize($serialized) {
+            list (
+            $this->id,
+            $this->pseudoUtilisateur,
+            $this->mdpUtilisateur,
+            // see section on salt below
+            // $this->salt
+        ) = unserialize($serialized);
+    }
+
+
+    /**
+     * Set isActive
+     *
+     * @param boolean $isActive
+     * @return Utilisateur
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * Get isActive
+     *
+     * @return boolean 
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
     }
 }

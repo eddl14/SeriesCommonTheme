@@ -3,7 +3,7 @@
 {# src/OCUserBundle/Resources/views/login.html.twig #}
 
 {% block body %}
-
+    
   {# S'il y a une erreur, on l'affiche dans un joli cadre #}
   {% if error %}
     <div class="alert alert-danger">{{ error.message }}</div>
@@ -16,7 +16,7 @@
 
     <label for="password">Mot de passe :</label>
     <input type="password" id="password" name="_password" />
-    <br />
+
     <input type="submit" value="Connexion" />
   </form>
 

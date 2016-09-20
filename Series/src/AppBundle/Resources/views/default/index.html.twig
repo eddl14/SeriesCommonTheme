@@ -3,5 +3,9 @@
 {% block body %}
     {% block label %}
         <h1>Bienvenue sur Fishblock </h1>
+        
+         {% if user is defined %}
+            Bonjour {{ app.user.username }} !
+         {% endif %}
     {% endblock %}
 {% endblock %}

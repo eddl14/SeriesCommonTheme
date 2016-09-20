@@ -102,11 +102,10 @@ class Serie
      */
     private $anneeProdSerie;
 
-    /**
+   /**
      * @var string
-     * 
-     * @Assert\Url(
-     *  message = "The url '{{ value }}' is not a valid url",
+     *
+     * @ORM\Column(name="photo", type="string", length=255)
      * )
      */
     private $photo;
@@ -259,6 +258,30 @@ class Serie
     {
         return $this->posterSerie;
     }
+    
+     /**
+     * Get photo
+     *
+     * @return string 
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * Set photo
+     *
+     * @param string $photo
+     * @return Serie
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+    
     /**
      * Constructor
      */

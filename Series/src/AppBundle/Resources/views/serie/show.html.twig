@@ -27,11 +27,11 @@
             </tr>
             <tr>
                 <th>Anneeprodserie</th>
-                <td>{% if serie.anneeProdSerie %}{{ serie.anneeProdSerie|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if serie.anneeProdSerie %}{{ serie.anneeProdSerie|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Posterserie</th>
-                <td>{{ serie.posterSerie }}</td>
+                <td>{{ serie.photo }}</td>
             </tr>
         </tbody>
     </table>

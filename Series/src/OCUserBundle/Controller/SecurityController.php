@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class SecurityController extends Controller
 {
-    public function loginAction(Request $request)
+    public function loginAction()
     {
         if($this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')){
             return $this->redirectToRoute('oc_platform_accueil');
@@ -24,10 +24,12 @@ class SecurityController extends Controller
         // et l'erreur dans le cas où le formulaire a déjà été soumis mais était invalide
         // (mauvais mot de passe par exemple)
         $authenticationUtils = $this->get('security.authentication_utils');
-
-         return $this->render('OCUserBundle::login.html.twig', array(
-            'last_username' => $authenticationUtils->getLastUsername(),
+        
+        
+         return $this->render('AppBundle::base.html.twig', ['last_username' => $authenticationUtils->getLastUsername(),
                 'error'         => $authenticationUtils->getLastAuthenticationError(),
-        ));
-    }
+             
+                ]);
+    } 
+    
 }
