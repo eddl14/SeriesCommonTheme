@@ -116,9 +116,8 @@ class Utilisateur Implements UserInterface, \Serializable
 
     /**
      * @var string
-
-     * @Assert\Url(
-     *  message = "The url '{{ value }}' is not a valid url",
+     *
+     * @ORM\Column(name="photo", type="string", length=255)
      * )
      */
     private $photo;
@@ -620,4 +619,27 @@ class Utilisateur Implements UserInterface, \Serializable
         ) = unserialize($serialized);
     }
 
+
+    /**
+     * Set isActive
+     *
+     * @param boolean $isActive
+     * @return Utilisateur
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * Get isActive
+     *
+     * @return boolean 
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
+    }
 }

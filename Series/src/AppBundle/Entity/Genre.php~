@@ -54,9 +54,8 @@ class Genre
 
     /**
      * @var string
-     * 
-     * @Assert\Url(
-     *  message = "The url '{{ value }}' is not a valid url",
+     *
+     * @ORM\Column(name="photo", type="string", length=255)
      * )
      */
     private $photo;
