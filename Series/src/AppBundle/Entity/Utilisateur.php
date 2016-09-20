@@ -22,7 +22,7 @@ use FOS\UserBundle\Model\User as BaseUser;
  */
 class Utilisateur extends BaseUser
 {
-    /**
+     /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -86,27 +86,27 @@ class Utilisateur extends BaseUser
      *
      * @ORM\Column(name="pseudoUtilisateur", type="string", length=255, unique=true)
      */
-    private $pseudoUtilisateur;
+    protected $pseudoUtilisateur;
 
     /**
      * @Assert\NotBlank()
      * @Assert\Length(max=4096)
      */
-    private $plainMdpUtilisateur;
+    protected $plainMdpUtilisateur;
     
     /**
      * @var string
      *
      * @ORM\Column(name="mdpUtilisateur", type="string", length=64)
      */
-    private $mdpUtilisateur;
+    protected $mdpUtilisateur;
 
     /**
      * @var string
      *
      * @ORM\Column(name="mailUtilisateur", type="string", length=255, unique=true)
      */
-    private $mailUtilisateur;
+    protected $mailUtilisateur;
 
     /**
      * @var DateTime
@@ -123,10 +123,6 @@ class Utilisateur extends BaseUser
      */
     private $photo;
 
-     /**
-     * @ORM\Column(name="is_active", type="boolean")
-     */
-    private $isActive;
     
     /**
      * Get id
@@ -334,9 +330,7 @@ class Utilisateur extends BaseUser
     
     public function getSalt()
     {
-        // The bcrypt algorithm doesn't require a separate salt.
-        // You *may* need a real salt if you choose a different encoder.
-        return null;
+       
     }
     
     /**
@@ -350,7 +344,7 @@ class Utilisateur extends BaseUser
         $this->critiques = new \Doctrine\Common\Collections\ArrayCollection();
         $this->notesCritiques = new \Doctrine\Common\Collections\ArrayCollection();
         $this->notes_ser = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->isActive = true;
+        
     }
 
     /**
@@ -584,63 +578,4 @@ class Utilisateur extends BaseUser
         return $this->note_critique;
     }
 
-    public function eraseCredentials() {
-        
-    }
-
-    public function getPassword() {
-        
-    }
-
-    public function getRoles() {
-        return array('ROLE_USER');
-    }
-
-    public function getUsername() {
-        
-    }
-
-    public function serialize() {
-        return serialize(array(
-            $this->id,
-            $this->pseudoUtilisateur,
-            $this->mdpUtilisateur,
-            // see section on salt below
-            // $this->salt,
-        ));
-    }
-
-    public function unserialize($serialized) {
-            list (
-            $this->id,
-            $this->pseudoUtilisateur,
-            $this->mdpUtilisateur,
-            // see section on salt below
-            // $this->salt
-        ) = unserialize($serialized);
-    }
-
-
-    /**
-     * Set isActive
-     *
-     * @param boolean $isActive
-     * @return Utilisateur
-     */
-    public function setIsActive($isActive)
-    {
-        $this->isActive = $isActive;
-
-        return $this;
-    }
-
-    /**
-     * Get isActive
-     *
-     * @return boolean 
-     */
-    public function getIsActive()
-    {
-        return $this->isActive;
-    }
 }
