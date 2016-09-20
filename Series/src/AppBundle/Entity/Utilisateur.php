@@ -620,4 +620,27 @@ class Utilisateur Implements UserInterface, \Serializable
         ) = unserialize($serialized);
     }
 
+
+    /**
+     * Set isActive
+     *
+     * @param boolean $isActive
+     * @return Utilisateur
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * Get isActive
+     *
+     * @return boolean 
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
+    }
 }
