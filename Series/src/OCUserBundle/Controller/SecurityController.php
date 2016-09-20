@@ -26,11 +26,10 @@ class SecurityController extends Controller
         $authenticationUtils = $this->get('security.authentication_utils');
         
         
-         return $this->render('OCUserBundle::login.html.twig', array(
-            'last_username' => $authenticationUtils->getLastUsername(),
+         return $this->render('AppBundle::base.html.twig', ['last_username' => $authenticationUtils->getLastUsername(),
                 'error'         => $authenticationUtils->getLastAuthenticationError(),
              
-            ));
+                ]);
     } 
     
 }

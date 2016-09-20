@@ -5,7 +5,8 @@ security:
         AppBundle\Entity\Utilisateur:
             algorithm: bcrypt
         
-    role_hierarchy:              
+    role_hierarchy:    
+        ROLE_USER:        ROLE_VISITEUR
         ROLE_ADMIN:       [ROLE_USER,ROLE_AUTEUR,ROLE_MODERATEUR]
         ROLE_SUPER_ADMIN: [ROLE_ADMIN,ROLE_ALLOWED_TO_SWITCH]
         
@@ -30,7 +31,7 @@ security:
         main:
             pattern:   ^/
             http_basic: ~
-            anonymous: false
+            anonymous: true
             provider: our_provider
             form_login:
                 login_path: login
@@ -38,9 +39,21 @@ security:
             logout:
                 path: logout
                 target: /
-        default:
-            anonymous: ~
-            http_basic: ~
+#        default:
+#            anonymous: ~
+#            http_basic: ~
+#            anonymous: false
+#            provider:  my_db
+#            form_login:
+#                login_path: login
+#                check_path: login_check
+#            logout:
+#                path: logout
+#                target: /
+
+#        default:
+#            anonymous: ~
+#            http_basic: ~
 #            anonymous: false
 #            provider:  my_db
 #            form_login:
