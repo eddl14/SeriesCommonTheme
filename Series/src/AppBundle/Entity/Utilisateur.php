@@ -10,6 +10,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\OneToMany;
 use Symfony\Component\Security\Core\User\UserInterface;
+use FOS\UserBundle\Model\User as BaseUser;
 
 
 
@@ -19,7 +20,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Table(name="utilisateur")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\UtilisateurRepository")
  */
-class Utilisateur Implements UserInterface, \Serializable
+class Utilisateur extends BaseUser
 {
     /**
      * @var int
@@ -28,7 +29,7 @@ class Utilisateur Implements UserInterface, \Serializable
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
     
     /**
      * @OneToMany(targetEntity="Message", mappedBy="utilisateurs")
@@ -342,7 +343,7 @@ class Utilisateur Implements UserInterface, \Serializable
      * Constructor
      */
     public function __construct()
-    {
+    {   parent::__construct();
         $this->messages = new \Doctrine\Common\Collections\ArrayCollection();
         $this->series = new \Doctrine\Common\Collections\ArrayCollection();
         $this->episodes = new \Doctrine\Common\Collections\ArrayCollection();
