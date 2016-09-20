@@ -32,7 +32,7 @@ class ActeurController extends Controller
         $acteurs = $em->getRepository('AppBundle:Acteur')->findAll();
 
         return $this->render('@App/acteur/index.html.twig', array(
-            'acteurs' => $acteurs,
+            'acteurs' => $acteurs, 'background' =>getPhoto();
         ));
     }
 
@@ -87,7 +87,7 @@ class ActeurController extends Controller
         $deleteForm = $this->createDeleteForm($acteur);
 
         return $this->render('@App/acteur/show.html.twig', array(
-            'acteur' => $acteur,
+            'acteur' => $acteur, 
             'delete_form' => $deleteForm->createView(),
         ));
     }

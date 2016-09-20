@@ -29,7 +29,7 @@ class SerieController extends Controller
         $series = $em->getRepository('AppBundle:Serie')->findAll();
 
         return $this->render('@App/serie/index.html.twig', array(
-            'series' => $series,
+            'series' => $series, 'background' =>'Img/AHS.png',
         ));
     }
 
