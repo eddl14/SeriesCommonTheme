@@ -26,7 +26,7 @@ class SerieType extends AbstractType
             ->add('synopsisSerie',TextType::class,['label'=>'Synopsis'])
             ->add('resumeSerie',TextType::class,['label'=>'Résumé'])
             ->add('anneeProdSerie',DateType::class,['widget'=>'single_text','format'=>'yyyy-MM-dd'])
-            ->add('posterSerie',UrlType::class,['label'=>'Photo'])
+            ->add('photo',UrlType::class,['label'=>'Photo'])
         ;
     }
     
