@@ -1,9 +1,6 @@
 app:
-    resource: "AppBundle/Controller/"
-    type: annotation
-
-utilisateur_index:
-    path: /utilisateur
-    default: { _controller: AppBundle:Controller:UtilisateurController}
-fos_user: 
+    resource: "@AppBundle/Controller/"
+    type:   annotation
+ 
+fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
