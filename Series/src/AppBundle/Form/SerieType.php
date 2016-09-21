@@ -1,14 +1,13 @@
 <?php
 
 namespace AppBundle\Form;
-
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
-use Symfony\Component\Form\Test\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\UrlType;
+
 
 
 
@@ -25,8 +24,8 @@ class SerieType extends AbstractType
             ->add('nomOriginalSerie',TextType::class,['label'=>'Nom original'])
             ->add('synopsisSerie',TextType::class,['label'=>'Synopsis'])
             ->add('resumeSerie',TextType::class,['label'=>'Résumé'])
-            ->add('anneeProdSerie',DateType::class,['widget'=>'single_text','format'=>'yyyy-MM-dd'])
-            ->add('posterSerie',UrlType::class,['label'=>'Photo'])
+            //->add('anneeProdSerie',DateType::class,['widget'=>'single_text','format'=>'yyyy-MM-dd'])
+            ->add('photo',UrlType::class,['label'=>'Photo'])
         ;
     }
     
