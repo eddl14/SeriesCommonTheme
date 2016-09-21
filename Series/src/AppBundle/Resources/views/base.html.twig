@@ -43,8 +43,10 @@
                     </div>
                          
                    
-
-                   <a href="{{path('utilisateur_index')}}" class="user"></a>
+                   <div>
+                        {% block fos_user_content %}{% endblock %}
+                        <a href="{{path('utilisateur_index')}}" class="user"></a>
+                </div>
                     
                 </div>
             {% endblock %} 
@@ -54,11 +56,9 @@
                 {% endblock %}                    
             </div>            
             <div class="main">
-                {% block body %}  
-                    {% block label %}
-                    {% endblock %}
+                {% block body %} 
                     
-                    
+                    {% block label %}{% endblock %}                    
                 {% endblock %}                
             </div>       
             

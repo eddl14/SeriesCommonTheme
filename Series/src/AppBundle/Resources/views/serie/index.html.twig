@@ -12,14 +12,23 @@
             <ul class="list">
                 {% for serie  in series %}
                     <li>
-                        <a href="{{ path('serie_show', { 'id': serie.id }) }}" class="framelist"  style="background-image: url({{asset(background|default('Img/background.png'))}})">
+                        <a href="{{ path('serie_show', { 'id': serie.id }) }}" class="framelist"  style="background-image: url({{asset('Img/background.png')}})">
                             <div class="bg">                    
                                     {{ serie.nomOriginalSerie }}
                                     
                             </div> 
-                            <div class="synopsis">
-                                <span >{{ serie.synopsisSerie }}</span>
+                               <div class="synopsis">
+                                <span >
+                                    {{ serie.synopsisSerie }}
+                                </span>
                             </div>
+                             {% if serie.photo !=null %}
+                                 <img src="{{serie.photo}}" />
+                              {% else %}
+                                  <img src="{{asset('Img/background.png')}}" />
+                            {% endif %} 
+                            
+                         
                                
                         </a>
                     </li>

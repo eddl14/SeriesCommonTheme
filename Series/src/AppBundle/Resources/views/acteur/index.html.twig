@@ -15,20 +15,16 @@
                     <li>
                         
                         <a href="{{ path('acteur_show', { 'id': acteur.id }) }}" class="framelist" >              
-                           {% if acteur.Photo !=null %}
-                                             <img src="{{acteur.Photo}}" />
-
-                                            {% else %}
-                                                 <img src="{{asset('Img/avatar.gif')}}" />
-         
-
-                                     {% endif %} 
+                            {% if acteur.Photo !=null %}
+                                 <img src="{{acteur.Photo}}" />
+                              {% else %}
+                                  <img src="{{asset('Img/avatar.gif')}}" />
+                            {% endif %} 
                            
                             <div class="bg">                                
                                     {{ acteur.prenomActeur }}
                                     {{ acteur.nomActeur }}                                    
-                            </div>  
-                                          
+                            </div>             
                             
                               
                         </a>
