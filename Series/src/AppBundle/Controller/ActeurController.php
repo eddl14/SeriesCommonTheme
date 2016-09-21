@@ -12,7 +12,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * Acteur controller.
@@ -44,8 +43,6 @@ class ActeurController extends Controller
      *
      * @Route("/new", name="acteur_new")
      * @Method({"GET", "POST"})
-     * 
-     * @Security("has_role('ROLE_AUTEUR')")
      */
     public function newAction(Request $request)
     {
