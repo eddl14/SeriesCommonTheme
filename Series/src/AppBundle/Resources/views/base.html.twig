@@ -19,7 +19,7 @@
     </head>
     
     
-    <body >        
+    <body>        
             {% block header %}
                 <div class ="header">
                     <a href="{{ path('homepage') }}" class="logo"></a>
@@ -56,12 +56,12 @@
                 {% endblock %}                    
             </div>            
             <div class="main">
-                {% block body %}  
+                {% block body %} 
                     
                     {% block label %}{% endblock %}                    
                 {% endblock %}                
             </div>       
-        
+            
         {% block javascripts %}{% endblock %}
     </body>
 
