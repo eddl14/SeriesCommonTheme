@@ -13,12 +13,21 @@
             <ul class="list">
                 {% for acteur in acteurs %}
                     <li>
-                        <a href="{{ path('acteur_show', { 'id': acteur.id }) }}" class="framelist"  style="background-image: url({{asset(background|default('Img/avatar.gif'))}})">
-                            <div class="bg">  
+                        
+                        <a href="{{ path('acteur_show', { 'id': acteur.id }) }}" class="framelist" >              
+                            {#<img {% if acteur.Photo !=null %}
+                                           src="{{acteur.Photo}}"
+                                            {% elseif %}
+                                                src="Img/avatar.gif"
+                                     {% endif %} />#}
+                           <img  src="{{acteur.Photo | default('Img/avatar.gif')}}"/>   
+                            <div class="bg">                                
                                     {{ acteur.prenomActeur }}
-                                    {{ acteur.nomActeur }}
-                                    
-                            </div>                    
+                                    {{ acteur.nomActeur }}                                    
+                            </div>  
+                                          
+                            
+                              
                         </a>
                     </li>
                 {% endfor %}

@@ -2,7 +2,6 @@
 
 use AppBundle\AppBundle;
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
-use OCUserBundle\OCUserBundle;
 use Sensio\Bundle\DistributionBundle\SensioDistributionBundle;
 use Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle;
 use Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle;
@@ -28,8 +27,7 @@ class AppKernel extends Kernel
             new SwiftmailerBundle(),
             new DoctrineBundle(),
             new SensioFrameworkExtraBundle(),
-            new AppBundle(),
-            new OCUserBundle(),
+            new AppBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

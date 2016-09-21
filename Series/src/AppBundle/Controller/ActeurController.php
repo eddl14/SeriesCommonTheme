@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 
+
 use AppBundle\Entity\Acteur;
 use AppBundle\Form\ActeurType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -31,9 +32,10 @@ class ActeurController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $acteurs = $em->getRepository('AppBundle:Acteur')->findAll();
+        
 
         return $this->render('@App/acteur/index.html.twig', array(
-            'acteurs' => $acteurs, 'background' =>getPhoto();
+            'acteurs' => $acteurs, 
         ));
     }
 
