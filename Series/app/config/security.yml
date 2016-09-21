@@ -1,8 +1,5 @@
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/book/security.html
-<<<<<<< HEAD
-
-=======
 security:
     encoders:
         FOS\UserBundle\Model\UserInterface: bcrypt
@@ -32,7 +29,6 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
->>>>>>> eaa0bfff4913d0a94d91c876a7f7485882f5bf71
 
         
             # activate different ways to authenticate

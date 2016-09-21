@@ -27,12 +27,8 @@ class AppKernel extends Kernel
             new SwiftmailerBundle(),
             new DoctrineBundle(),
             new SensioFrameworkExtraBundle(),
-<<<<<<< HEAD
-            new AppBundle()
-=======
             new AppBundle(),
             new FOS\UserBundle\FOSUserBundle()
->>>>>>> eaa0bfff4913d0a94d91c876a7f7485882f5bf71
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
