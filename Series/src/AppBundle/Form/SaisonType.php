@@ -26,7 +26,7 @@ class SaisonType extends AbstractType
             ->add('numeroSaison',TextType::class,['label'=>'Numéro saison'])
             ->add('resumeSaison',TextareaType::class,['label'=>'Résumé'])
             ->add('anneeProduction',DateType::class,['widget'=>'single_text','format'=>'yyyy-MM-dd'])
-            ->add('posterSaison',UrlType::class,['label'=>'Photo'])
+            ->add('photo',UrlType::class,['label'=>'Photo'])
         ;
     }
     
