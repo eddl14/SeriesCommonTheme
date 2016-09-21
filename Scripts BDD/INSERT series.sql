@@ -1,6 +1,6 @@
 ﻿
-INSERT INTO utilisateur (prenomUtilisateur,nomUtilisateur,pseudoUtilisateur,mdpUtilisateur,mailUtilisateur,dateNaissance)
-VALUES ("Levy","LOESER","Alezan","c54Qsu3E","levy.loeser@outlook.fr","1978-12-02"),
+INSERT INTO utilisateur (prenomUtilisateur,nomUtilisateur,username,password,email,dateNaissance,usercanonical,emailcanonical,enabled,salt,last_login,locked,expired,expires_at,confirmation_token,password_requested_at,roles,credentials_expired,credentials_expired_at)
+VALUES ("Levy","LOESER","Alezan","c54Qsu3E","levy.loeser@outlook.fr","1978-12-02","","",12,"sdcsd","",15,"12/05/16 05:06:08",),
 ("Hugo","KIWI","Quadrane","b99s3yEM","hugo.kiwi@outlook.fr","1985-04-01"),
 ("Matthew","ALLON","Orion","yV6k5a7Z","matthew.allon@outlook.fr","1968-06-10"),
 ("Chetan","BALWE","Lagon","uT92pz7D","chetan.balwe@outlook.fr","1993-12-01"),

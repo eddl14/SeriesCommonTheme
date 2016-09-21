@@ -2,14 +2,14 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Repository\UtilisateurRepository;
+//use AppBundle\Repository\UtilisateurRepository;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+///use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\OneToMany;
-use Symfony\Component\Security\Core\User\UserInterface;
+//use Symfony\Component\Security\Core\User\UserInterface;
 use FOS\UserBundle\Model\User as BaseUser;
 
 
@@ -80,34 +80,7 @@ class Utilisateur extends BaseUser
      * @ORM\Column(name="prenomUtilisateur", type="string", length=255)
      */
     private $prenomUtilisateur;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="pseudoUtilisateur", type="string", length=255, unique=true)
-     */
-    protected $pseudoUtilisateur;
-
-    /**
-     * @Assert\NotBlank()
-     * @Assert\Length(max=4096)
-     */
-    protected $plainMdpUtilisateur;
-    
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="mdpUtilisateur", type="string", length=64)
-     */
-    protected $mdpUtilisateur;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="mailUtilisateur", type="string", length=255, unique=true)
-     */
-    protected $mailUtilisateur;
-
+     
     /**
      * @var DateTime
      *
