@@ -44,8 +44,9 @@
                          
                    
                    <div>
-                        {% block fos_user_content %}{% endblock %}
-                        <a href="{{path('utilisateur_index')}}" class="user"></a>
+                          {% block fos_user_content %}
+                          {% endblock fos_user_content %}
+                        {#<a href="{{path('utilisateur_index')}}" class="user"></a> #}
                 </div>
                     
                 </div>

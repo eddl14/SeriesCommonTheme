@@ -5,40 +5,33 @@
         <h1> Liste des Réalisateurs</h1>
     {% endblock %}
     
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nomrealisateur</th>
-                <th>Prenomrealisateur</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
+  <a class="btn icon-btn btn-success" href="{{ path('realisateur_new') }}">Ajouter
+          <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>
+      </a>
+   
         <tbody>
-        {% for realisateur in realisateurs %}
-            <tr>
-                <td><a href="{{ path('realisateur_show', { 'id': realisateur.id }) }}">{{ realisateur.id }}</a></td>
-                <td>{{ realisateur.nomRealisateur }}</td>
-                <td>{{ realisateur.prenomRealisateur }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('realisateur_show', { 'id': realisateur.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('realisateur_edit', { 'id': realisateur.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
+            <ul class="list">
+                {% for realisateur in realisateurs %}
+                    <li>
+                        
+                        <a href="{{ path('realisateur_show', { 'id': realisateur.id }) }}" class="framelist" >              
+                            {% if realisateur.Photo !=null %}
+                                 <img src="{{realisateur.Photo}}" />
+                              {% else %}
+                                  <img src="{{asset('Img/avatar.gif')}}" />
+                            {% endif %} 
+                           
+                            <div class="bg">                                
+                                    {{ realisateur.prenomRealisateur }}
+                                    {{ realisateur.nomRealisateur }}                                    
+                            </div>             
+                            
+                              
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('realisateur_new') }}">Ajouter un réalisateur</a>
-        </li>
-    </ul>
 {% endblock %}
