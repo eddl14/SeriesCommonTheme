@@ -9,10 +9,8 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
-use Symfony\Component\Form\Test\FormBuilderInterface;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
-
 
 
 class UtilisateurType extends AbstractType
@@ -27,7 +25,7 @@ class UtilisateurType extends AbstractType
             ->add('nomUtilisateur',TextType::class,['label'=>'Nom'])
             ->add('prenomUtilisateur',TextType::class,['label'=>'Prénom'])
             ->add('username',TextType::class,['label'=>'Pseudo'])
-            ->add('plainpassword',RepeatedType::class,array(
+            ->add('plainPassword',RepeatedType::class,array(
                     'type'=>PasswordType::class,
                     'first_options'=>['label'=>'Veuillez rentrer votre Mdp'],
                     'second_options'=> ['label'=>'Confirmez votre Mdp']))
